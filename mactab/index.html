@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MacTab — a faster window switcher for macOS &amp; Windows</title>
+  <meta name="description" content="MacTab replaces the built-in app switcher with a real window switcher: every window in most-recent order, with a live preview of the one you're about to switch to. For macOS and Windows.">
+  <link rel="canonical" href="https://kisookim.github.io/projects/mactab/">
+  <meta property="og:title" content="MacTab — a faster window switcher">
+  <meta property="og:description" content="Every window in most-recent order, with a live preview. For macOS and Windows.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kisookim.github.io/projects/mactab/">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="assets/icon.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header id="nav">
+    <div class="container nav-row">
+      <div class="nav-left">
+        <a class="nav-back" href="../">← Projects</a>
+        <span class="nav-title"><img src="assets/icon.svg" alt="">MacTab</span>
+      </div>
+      <a class="btn sm" href="#get">Download</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero">
+      <div class="container">
+        <img class="hero-icon reveal" src="assets/icon.svg" alt="MacTab icon" width="96" height="96">
+        <p class="eyebrow reveal">macOS &amp; Windows · Window switcher</p>
+        <h1 class="reveal">Switch windows,<br><span class="grad">not just apps.</span></h1>
+        <p class="hero-sub reveal">MacTab replaces the built-in ⌘Tab / Alt+Tab switcher with a real
+          <em>window</em> switcher — every open window in most-recent order, with a live preview of
+          the one you're about to jump to.</p>
+        <div class="hero-cta reveal">
+          <a class="btn" href="https://github.com/KisooKim/mactab/releases" target="_blank" rel="noopener"> Download for macOS</a>
+          <a class="btn ghost" href="https://github.com/KisooKim/mactab/releases" target="_blank" rel="noopener"> Download for Windows</a>
+        </div>
+        <p class="hero-note reveal">Free · macOS 14+ · Windows 10/11</p>
+
+        <div class="hero-art reveal">
+          <div class="mock" role="img" aria-label="The MacTab switcher: a list of open windows on the left with the second row selected, and a live preview of that window on the right.">
+            <div class="mock-list">
+              <div class="mrow"><i class="i-chrome"></i>Chrome — Inbox (14)</div>
+              <div class="mrow sel"><i class="i-code"></i>Code — mactab</div>
+              <div class="mrow"><i class="i-slack"></i>Slack — #general</div>
+              <div class="mrow"><i class="i-finder"></i>Finder — Downloads</div>
+            </div>
+            <div class="mprev">
+              <div class="win-bar"><i></i><i></i><i></i></div>
+              <div class="win-body">
+                <span style="width:66%"></span><span style="width:42%"></span>
+                <span style="width:74%"></span><span style="width:36%"></span>
+                <span style="width:58%"></span><span style="width:48%"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="reveal">Built to get out of your way.</h2>
+        <p class="sub reveal">The one interaction that matters — hold the modifier, tap to cycle,
+          release to switch — with everything you need to land on the right window fast.</p>
+        <div class="feat">
+          <div class="f reveal">
+            <div class="k">▤</div>
+            <h3>Live preview</h3>
+            <p>See the actual window next to the list, not just an app icon — so you land on the
+              right one the first time.</p>
+          </div>
+          <div class="f reveal">
+            <div class="k">↺</div>
+            <h3>Most-recent order</h3>
+            <p>Windows are ordered by when you last used them, so the one you want is almost always
+              second in the list — one tap away.</p>
+          </div>
+          <div class="f reveal">
+            <div class="k">⌨</div>
+            <h3>Keyboard or mouse</h3>
+            <p>Hold-and-tap to cycle and release to confirm, or hover the list and click. Hovering
+              previews; leaving the list snaps back to your selection.</p>
+          </div>
+          <div class="f reveal">
+            <div class="k">⤢</div>
+            <h3>Every window</h3>
+            <p>Switches between individual windows, not just apps — including multiple windows of the
+              same program.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <h2 class="reveal">One design, native on each.</h2>
+        <p class="sub reveal">Not a cross-platform wrapper — each version is a native app that shares
+          the same behavior and switching model.</p>
+        <div class="plat">
+          <div class="p reveal">
+            <h3>macOS</h3>
+            <p class="stack">Swift · AppKit</p>
+            <p>A menu-bar app that takes over ⌘Tab / ⌘` with four hotkey slots, an optional 3-finger
+              trackpad gesture, and live window thumbnails.</p>
+          </div>
+          <div class="p reveal">
+            <h3>Windows</h3>
+            <p class="stack">C# · .NET · WPF</p>
+            <p>A tray app that replaces Alt+Tab, with live DWM window previews composited right into
+              the switcher and mouse hover + click support.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="get">
+      <div class="container" style="text-align:center">
+        <h2 class="reveal">Get MacTab.</h2>
+        <p class="sub reveal" style="margin-inline:auto">Free for macOS and Windows. Pick your platform.</p>
+        <div class="hero-cta reveal">
+          <a class="btn" href="https://github.com/KisooKim/mactab/releases" target="_blank" rel="noopener"> Download for macOS</a>
+          <a class="btn ghost" href="https://github.com/KisooKim/mactab/releases" target="_blank" rel="noopener"> Download for Windows</a>
+        </div>
+        <p class="hero-note reveal">macOS 14+ · Windows 10/11</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="container foot">
+      <span>© Kisoo Kim</span>
+      <nav><a href="../">← All projects</a></nav>
+    </div>
+  </footer>
+</body>
+</html>

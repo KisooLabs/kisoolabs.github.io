@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="MacTab — window switcher for macOS and Windows">
+  <defs>
+    <linearGradient id="mtbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a6cbb"/>
+      <stop offset="1" stop-color="#33c2f1"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.3" cy="0.42" r="0.6">
+      <stop offset="0" stop-color="#cfe6fb" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#cfe6fb" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="640" height="360" fill="#EEF4FB"/>
+  <rect width="640" height="360" fill="url(#glow)"/>
+  <g transform="translate(92,100) scale(0.625)">
+    <rect x="8" y="8" width="240" height="240" rx="54" fill="url(#mtbg)"/>
+    <g fill="#ffffff">
+      <rect x="44" y="70" width="46" height="34" rx="9" opacity=".92"/>
+      <rect x="44" y="111" width="46" height="34" rx="9" opacity=".92"/>
+      <rect x="44" y="152" width="46" height="34" rx="9" opacity=".92"/>
+      <rect x="104" y="60" width="108" height="136" rx="13"/>
+    </g>
+  </g>
+  <text x="300" y="171" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-size="54" font-weight="700" fill="#16161A">MacTab</text>
+  <text x="302" y="206" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-size="20.5" fill="#565660">Window switcher · macOS &amp; Windows</text>
+</svg>

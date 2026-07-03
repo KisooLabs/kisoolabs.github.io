@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PDF Page Remover — remove pages from any PDF, keep a clean copy</title>
+  <meta name="description" content="A Chrome extension that removes unwanted pages from any PDF and saves a clean copy to Downloads — with a one-click JSTOR cover remover. Runs entirely in your browser; nothing is uploaded.">
+  <link rel="canonical" href="https://kisookim.github.io/projects/pdf-page-remover/">
+  <meta property="og:title" content="PDF Page Remover">
+  <meta property="og:description" content="Remove unwanted pages from any PDF and save a clean copy — with a one-click JSTOR cover remover. 100% local.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kisookim.github.io/projects/pdf-page-remover/">
+  <meta property="og:image" content="https://kisookim.github.io/projects/pdf-page-remover/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/icon32.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header id="nav">
+    <div class="container nav-row">
+      <div class="nav-left">
+        <a class="nav-back" href="../">← Projects</a>
+        <span class="nav-title"><img src="assets/icon.png" alt="">PDF Page Remover</span>
+      </div>
+      <a class="btn sm" href="pdf-page-remover.zip" download>Download</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero">
+      <div class="container">
+        <img class="hero-icon" src="assets/icon.png" alt="PDF Page Remover icon" width="96" height="96">
+        <p class="eyebrow reveal">Chrome extension · Chrome, Edge &amp; Brave</p>
+        <h1 class="reveal">Remove pages from any PDF.<br><span class="grad">Keep the clean copy.</span></h1>
+        <p class="hero-sub reveal">Open a PDF, click the icon, pick the pages you don't want in a thumbnail
+          grid, and download the rest. Plus a one-click <b>Remove cover</b> button on JSTOR articles.
+          Everything runs in your browser — nothing is uploaded.</p>
+        <div class="hero-cta reveal">
+          <a class="btn" href="pdf-page-remover.zip" download>↓ Download .zip (free)</a>
+          <span class="btn soon" title="Chrome Web Store listing is in review"><span class="dot"></span>Chrome Web Store — coming soon</span>
+        </div>
+        <p class="hero-note reveal">Free · 100% local · no upload, no account, no tracking</p>
+
+        <div class="hero-art reveal">
+          <div class="shot">
+            <img src="assets/popup.png" alt="The PDF Page Remover popup: a 4-column grid of real page thumbnails from a PDF, with quick-select buttons (All, Page 1, Last page, Clear) and a Remove &amp; download button.">
+          </div>
+          <p class="shot-cap">Pick the pages to drop — real page thumbnails, right in the popup.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="reveal">Small tool, does one thing well.</h2>
+        <p class="sub reveal">Manual page removal for any PDF, with site presets that encode the annoying
+          bits — like JSTOR's cover page — so common jobs are one click.</p>
+        <div class="feat">
+          <div class="f reveal">
+            <div class="k">▦</div>
+            <h3>Thumbnail grid</h3>
+            <p>Every page rendered as a live thumbnail. Click the ones you don't want — a red ✕ marks
+              them — and download the rest.</p>
+          </div>
+          <div class="f reveal">
+            <div class="k">✂</div>
+            <h3>One-click JSTOR cover</h3>
+            <p>On a JSTOR article page, a <b>Remove cover</b> button appears next to Download and strips
+              the cover/info page, saving the article in one click.</p>
+            <span class="tagpill">Flagship preset</span>
+          </div>
+          <div class="f reveal">
+            <div class="k">🔒</div>
+            <h3>100% local</h3>
+            <p>Pages are removed right in your browser with pdf-lib and pdf.js. Your PDF, its filename,
+              and its contents never leave your machine.</p>
+          </div>
+          <div class="f reveal">
+            <div class="k">📄</div>
+            <h3>Keeps your original</h3>
+            <p>Always saves a new, clean copy to your Downloads folder. The original file or tab is
+              never modified.</p>
+          </div>
+          <div class="f reveal">
+            <div class="k">⚡</div>
+            <h3>Quick-select</h3>
+            <p>All, Page 1, Last page, Clear — and a smart banner that offers to drop a cover page when
+              it detects one (it never removes anything silently).</p>
+          </div>
+          <div class="f reveal">
+            <div class="k">🌐</div>
+            <h3>Any PDF</h3>
+            <p>Web PDFs or local files. If thumbnails can't render for an unusual PDF, it falls back to
+              numbered pages so it always works.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="install">
+      <div class="container">
+        <h2 class="reveal">Install it in a minute.</h2>
+        <p class="sub reveal">The Chrome Web Store listing is in review. Until it's live, install the same
+          extension manually — it's quick:</p>
+        <ol class="steps reveal">
+          <li><b>Download the .zip</b> above and unzip it — you'll get a <code>pdf-page-remover</code> folder.</li>
+          <li>Open <code>chrome://extensions</code> and turn on <b>Developer mode</b> (top-right toggle).</li>
+          <li>Click <b>Load unpacked</b> and select the <code>pdf-page-remover</code> folder.</li>
+          <li>Pin the icon, open any PDF, and click it. Done.</li>
+        </ol>
+        <div class="callout reveal">
+          <b>Two notes.</b> The JSTOR button asks for a one-time permission on <code>jstor.org</code> the
+          first time you enable it — the base install requests nothing beyond the active tab. And to use
+          it on a <b>local <code>file://</code> PDF</b>, turn on “Allow access to file URLs” in the
+          extension's <b>Details</b> page. Works the same in Edge (<code>edge://extensions</code>) and
+          Brave (<code>brave://extensions</code>).
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="reveal">Private by design.</h2>
+        <p class="sub reveal">There's no server. The only network request is fetching the PDF you're
+          already looking at.</p>
+        <div class="priv">
+          <div class="pr reveal"><span class="pk">🔒</span><div><h3>Nothing uploaded</h3><p>All processing happens in-browser. No PDF, filename, or metadata is ever sent anywhere.</p></div></div>
+          <div class="pr reveal"><span class="pk">🧾</span><div><h3>No tracking</h3><p>No analytics, no accounts, no telemetry. The extension makes no requests of its own.</p></div></div>
+          <div class="pr reveal"><span class="pk">🔑</span><div><h3>Minimal permissions</h3><p>Just <code>activeTab</code> + <code>downloads</code>. JSTOR access is opt-in and requested only when you enable it.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="get">
+      <div class="container" style="text-align:center">
+        <h2 class="reveal">Get PDF Page Remover.</h2>
+        <p class="sub reveal" style="margin-inline:auto">Free, local, and non-destructive. Grab the .zip
+          now, or wait for the one-click Store install.</p>
+        <div class="hero-cta reveal">
+          <a class="btn" href="pdf-page-remover.zip" download>↓ Download .zip (free)</a>
+          <span class="btn soon"><span class="dot"></span>Chrome Web Store — coming soon</span>
+        </div>
+        <p class="disclaim reveal">Not affiliated with JSTOR or ITHAKA. “JSTOR” is used only to name the
+          site the preset works on.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="container foot">
+      <span>© Kisoo Kim</span>
+      <nav><a href="../">← All projects</a></nav>
+    </div>
+  </footer>
+</body>
+</html>

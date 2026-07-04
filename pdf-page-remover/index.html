@@ -42,32 +42,55 @@
         <p class="hero-note reveal">Free · 100% local · no upload, no account, no tracking</p>
 
         <div class="hero-art reveal">
-          <div class="shot demo" id="demo" aria-label="Animated demo: marking a PDF page for removal and downloading the clean copy" role="img">
-            <div class="demo-pop">
-              <div class="demo-head">
-                <img class="demo-app" src="assets/icon.png" alt="">
-                <div class="demo-titles">
-                  <div class="demo-t">Remove pages</div>
-                  <div class="demo-file"><span id="demoFile">article.pdf</span> · <span id="demoCount">8</span> pages</div>
-                </div>
-              </div>
-              <div class="demo-pills">
-                <span class="demo-pill">All</span>
-                <span class="demo-pill">Page 1</span>
-                <span class="demo-pill">Last page</span>
-                <span class="demo-pill">Clear</span>
-              </div>
-              <div class="demo-grid" id="demoGrid"></div>
-              <div class="demo-status" id="demoStatus">Nothing selected — all <b>8</b> pages kept</div>
-              <div class="demo-btn" id="demoBtn">Remove &amp; download</div>
-              <div class="demo-sub">Saves a new copy · original untouched</div>
-              <div class="demo-cursor" id="demoCursor" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="24" height="24"><path d="M4 2l6.5 16.5 2.4-6.6 6.6-2.4L4 2z" fill="#111" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/></svg>
-              </div>
-              <div class="demo-toast" id="demoToast"><span class="demo-check">✓</span> Downloaded <b>article&#8202;·&#8202;clean.pdf</b></div>
+          <div class="shot demo" id="demo" aria-label="Animated demo of the Chrome extension: click the toolbar icon to open the popup, mark the PDF cover page, and download the clean copy" role="img">
+
+            <!-- browser toolbar -->
+            <div class="bx-bar">
+              <div class="bx-nav" aria-hidden="true"><span>‹</span><span>›</span><span class="bx-reload">⟳</span></div>
+              <div class="bx-omni"><span class="bx-lock" aria-hidden="true"></span><span class="bx-url">www.jstor.org/stable/1706.03762</span></div>
+              <span class="bx-puzzle" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="15" height="15"><path fill="currentColor" d="M9 2a2 2 0 0 1 2 2v1h2V4a2 2 0 1 1 4 0v1a2 2 0 0 1 2 2v3h1a2 2 0 1 1 0 4h-1v3a2 2 0 0 1-2 2h-3v-1a2 2 0 1 0-4 0v1H7a2 2 0 0 1-2-2v-3H4a2 2 0 1 1 0-4h1V7a2 2 0 0 1 2-2h1V4a2 2 0 0 1 1-2z"/></svg>
+              </span>
+              <span class="bx-icon" id="bxIcon"><img src="assets/icon.png" alt=""></span>
+              <span class="bx-menu" aria-hidden="true">⋮</span>
             </div>
+
+            <!-- PDF viewer with the extension popup open over it -->
+            <div class="bx-stage">
+              <div class="bx-page" aria-hidden="true">
+                <span class="bx-pband"></span>
+                <span class="bx-pl w1"></span><span class="bx-pl w2"></span><span class="bx-pl w3"></span>
+                <span class="bx-pl w2"></span><span class="bx-pl w1"></span>
+              </div>
+
+              <div class="demo-pop" id="demoPop">
+                <span class="demo-notch" aria-hidden="true"></span>
+                <div class="demo-head">
+                  <img class="demo-app" src="assets/icon.png" alt="">
+                  <div class="demo-titles">
+                    <div class="demo-t">Remove pages</div>
+                    <div class="demo-file"><span id="demoFile">1706.03762.pdf</span> · <span id="demoCount">8</span> pages</div>
+                  </div>
+                </div>
+                <div class="demo-pills">
+                  <span class="demo-pill">All</span>
+                  <span class="demo-pill">Page 1</span>
+                  <span class="demo-pill">Last page</span>
+                  <span class="demo-pill">Clear</span>
+                </div>
+                <div class="demo-grid" id="demoGrid"></div>
+                <div class="demo-status" id="demoStatus">Nothing selected — all <b>8</b> pages kept</div>
+                <div class="demo-btn" id="demoBtn">Remove &amp; download</div>
+                <div class="demo-sub">Saves a new copy · original untouched</div>
+              </div>
+            </div>
+
+            <div class="demo-cursor" id="demoCursor" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24"><path d="M4 2l6.5 16.5 2.4-6.6 6.6-2.4L4 2z" fill="#111" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="demo-toast" id="demoToast"><span class="demo-check">✓</span> Downloaded <b>1706.03762&#8202;·&#8202;clean.pdf</b></div>
           </div>
-          <p class="shot-cap">A live look: mark the pages you don't want, download the clean copy.</p>
+          <p class="shot-cap">A live look: click the extension icon, mark the pages you don't want, download the clean copy.</p>
         </div>
       </div>
     </section>
@@ -184,6 +207,8 @@
     var btn = document.getElementById('demoBtn');
     var cursor = document.getElementById('demoCursor');
     var toast = document.getElementById('demoToast');
+    var pop = document.getElementById('demoPop');
+    var bxIcon = document.getElementById('bxIcon');
     var TOTAL = 8;
 
     // build page thumbnails; page 1 is a JSTOR-style cover
@@ -219,10 +244,14 @@
       btn.classList.remove('active','press');
       status.innerHTML = 'Nothing selected — all <b>'+TOTAL+'</b> pages kept';
       toast.classList.remove('show');
+      pop.classList.remove('open');
+      bxIcon.classList.remove('active');
     }
 
     if(reduce){
-      // static end-state, no motion
+      // static end-state: extension open, cover page marked — no motion
+      pop.classList.add('open');
+      bxIcon.classList.add('active');
       pages[0].classList.add('marked');
       btn.classList.add('active');
       status.innerHTML = '<b>1</b> page selected — <b>'+(TOTAL-1)+'</b> kept';
@@ -236,22 +265,28 @@
     function play(){
       timers.forEach(clearTimeout); timers = [];
       reset();
-      // park cursor bottom-right
+      // park cursor down in the PDF viewer area, popup closed
       cursor.style.transition = 'none';
-      cursor.style.transform = 'translate('+(demo.clientWidth-24)+'px,'+(demo.clientHeight-18)+'px)';
-      at(60, function(){ cursor.style.transition = 'transform 0.7s cubic-bezier(.4,.5,.3,1)'; });
+      cursor.style.transform = 'translate('+(demo.clientWidth*0.34)+'px,'+(demo.clientHeight*0.62)+'px)';
+      at(60, function(){ cursor.style.transition = 'transform 0.72s cubic-bezier(.4,.5,.3,1)'; });
 
-      at(700,  function(){ moveTo(pages[0]); });
-      at(1500, function(){
+      // 1) click the toolbar extension icon -> popup opens
+      at(650,  function(){ moveTo(bxIcon); });
+      at(1400, function(){ bxIcon.classList.add('active'); pop.classList.add('open'); });
+      // 2) mark the cover page
+      at(2250, function(){ moveTo(pages[0]); });
+      at(3050, function(){
         pages[0].classList.add('marked');
         btn.classList.add('active');
         status.innerHTML = '<b>1</b> page selected — <b>'+(TOTAL-1)+'</b> kept';
       });
-      at(2300, function(){ moveTo(btn); });
-      at(3100, function(){ btn.classList.add('press'); });
-      at(3260, function(){ btn.classList.remove('press'); toast.classList.add('show'); });
-      at(5200, function(){ toast.classList.remove('show'); });
-      at(5800, play);
+      // 3) hit Remove & download -> toast
+      at(3800, function(){ moveTo(btn); });
+      at(4600, function(){ btn.classList.add('press'); });
+      at(4760, function(){ btn.classList.remove('press'); toast.classList.add('show'); });
+      // 4) close and loop
+      at(6700, function(){ toast.classList.remove('show'); pop.classList.remove('open'); bxIcon.classList.remove('active'); });
+      at(7400, play);
     }
 
     // start only when visible, to avoid layout-math on a 0-size element

@@ -76,6 +76,12 @@ article.note{padding:clamp(40px,6vw,72px) 0 clamp(48px,7vw,90px)}
   border-radius:6px;padding:1px 7px 2px;background:var(--bg-soft);white-space:nowrap}
 .note .aside{border-left:3px solid var(--accent);background:var(--bg-soft);border-radius:0 12px 12px 0;
   padding:16px 20px;margin:0 0 20px;color:var(--text-dim);font-size:16.5px;line-height:1.6}
+.note figure{margin:30px 0 34px}
+.note .fig-wide{width:min(920px,calc(100vw - 48px));margin-left:50%;transform:translateX(-50%)}
+.note figure img{width:100%;height:auto;border-radius:14px;border:1px solid var(--border);box-shadow:var(--shadow)}
+.note figure svg{width:100%;height:auto;display:block}
+.note figcaption{margin-top:12px;color:var(--text-faint);font-size:14.5px;line-height:1.5;text-align:center;
+  max-width:640px;margin-inline:auto}
 .note .colophon{margin-top:56px;padding-top:22px;border-top:1px solid var(--border);
   color:var(--text-faint);font-size:14.5px}
 .note .colophon a{color:var(--text-dim)}

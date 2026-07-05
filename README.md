@@ -1,6 +1,6 @@
 # Projects
 
-Source for my software portfolio — <https://kisookim.github.io/projects/>
+Source for my software portfolio — <https://kisoolabs.github.io/>
 
 A static site (no build step), served by GitHub Pages from the repo root.
 

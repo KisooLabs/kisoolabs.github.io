@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kisoo Kim — Notes</title>
-    <link>https://kisookim.github.io/projects/notes/</link>
+    <link>https://kisoolabs.github.io/notes/</link>
     <description>The stories behind the things I build — why each exists, and what building it taught me.</description>
     <language>en</language>
-    <atom:link href="https://kisookim.github.io/projects/notes/feed.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://kisoolabs.github.io/notes/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Making MacTab</title>
-      <link>https://kisookim.github.io/projects/notes/making-mactab/</link>
-      <guid isPermaLink="true">https://kisookim.github.io/projects/notes/making-mactab/</guid>
+      <link>https://kisoolabs.github.io/notes/making-mactab/</link>
+      <guid isPermaLink="true">https://kisoolabs.github.io/notes/making-mactab/</guid>
       <pubDate>Sat, 05 Jul 2026 00:00:00 GMT</pubDate>
       <description>Why I replaced my Mac's ⌘Tab with a real window switcher — and then rebuilt the same thing, natively, for Windows. Featuring a keyboard hook that starved, a window parked one pixel on-screen, and the case for deleting features.</description>
     </item>

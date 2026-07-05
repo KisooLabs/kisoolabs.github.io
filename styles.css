@@ -37,8 +37,27 @@ header.site{padding-top:clamp(54px,9vw,108px);padding-bottom:clamp(30px,5vw,54px
   transition:border-color .15s,color .15s,background .15s}
 .hlink:hover{color:var(--text);border-color:var(--border-strong);background:rgba(255,255,255,.03)}
 
+/* ---- page sections ---- */
+.sec{padding-bottom:clamp(44px,6vw,80px)}
+.sec-label{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint);margin:0 0 8px}
+.sec-sub{color:var(--text-dim);font-size:16px;margin:0 0 22px}
+
+/* ---- notes list (dark hub) ---- */
+.notes-list{display:flex;flex-direction:column;gap:16px}
+.note-row{display:block;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:22px 24px;transition:border-color .18s,transform .18s}
+.note-row:hover{border-color:var(--border-strong);transform:translateY(-2px)}
+.nr-kicker{display:flex;align-items:center;gap:9px;margin:0 0 9px}
+.nr-kicker img{width:18px;height:18px;border-radius:4px}
+.nr-kicker span{font-size:12px;color:var(--text-faint);letter-spacing:.07em;text-transform:uppercase}
+.note-row h3{font-size:20px;margin:0 0 7px;display:flex;align-items:baseline;gap:.4em}
+.note-row h3 .arr{color:var(--text-faint);font-weight:400;transition:transform .18s,color .18s}
+.note-row:hover h3 .arr{transform:translateX(3px);color:var(--text)}
+.nr-sub{color:var(--text-dim);font-size:15.5px;line-height:1.55;margin:0;max-width:70ch}
+.all-notes{margin:16px 0 0;font-size:14px;color:var(--text-faint)}
+.all-notes a{color:var(--text-dim)}.all-notes a:hover{color:var(--text)}
+
 /* ---- project grid ---- */
-.projects{padding-bottom:var(--pad-section)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:clamp(20px,3vw,30px)}
 .card{display:flex;flex-direction:column;background:var(--bg-card);border:1px solid var(--border);
   border-radius:var(--radius);overflow:hidden;transition:border-color .18s,transform .18s}

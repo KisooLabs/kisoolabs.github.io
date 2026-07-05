@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Kisoo Kim — Projects</title>
-  <meta name="description" content="Small software I build — a collection of apps and tools by Kisoo Kim.">
+  <title>Kisoo Kim — Software &amp; Notes</title>
+  <meta name="description" content="Small software I build — apps, tools, and the stories behind them.">
   <link rel="canonical" href="https://kisoolabs.github.io/">
-  <meta property="og:title" content="Kisoo Kim — Projects">
+  <meta property="og:title" content="Kisoo Kim — Software &amp; Notes">
   <meta property="og:description" content="Small software I build — a collection of apps and tools.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kisoolabs.github.io/">
@@ -21,15 +21,34 @@
       <h1 class="lead reveal">Small software I build.</h1>
       <p class="tagline reveal">Little apps and tools I make to scratch my own itch — and share.</p>
       <nav class="hlinks reveal">
-        <a class="hlink" href="notes/">Notes →</a>
         <a class="hlink" href="https://github.com/kisoolabs" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="hlink" href="notes/feed.xml">RSS</a>
       </nav>
     </div>
   </header>
 
-  <main class="projects">
-    <div class="container">
-      <div class="grid">
+  <main>
+    <section class="sec" id="notes">
+      <div class="container">
+        <p class="sec-label reveal">Notes</p>
+        <p class="sec-sub reveal">The stories behind the things I build.</p>
+        <div class="notes-list">
+          <a class="note-row reveal" href="notes/making-mactab/">
+            <p class="nr-kicker"><img src="mactab/assets/icon.svg" alt=""><span>MacTab · macOS &amp; Windows</span></p>
+            <h3>Making MacTab <span class="arr">→</span></h3>
+            <p class="nr-sub">Why I replaced my Mac's ⌘Tab with a real <em>window</em> switcher — and then
+              rebuilt the same thing, natively, for Windows. Featuring a keyboard hook that starved, a
+              window parked one pixel on-screen, and the case for deleting features.</p>
+          </a>
+        </div>
+        <p class="all-notes reveal"><a href="notes/">All notes →</a> · <a href="notes/feed.xml">RSS</a></p>
+      </div>
+    </section>
+
+    <section class="sec" id="software">
+      <div class="container">
+        <p class="sec-label reveal">Software</p>
+        <div class="grid">
 
         <article class="card reveal">
           <a class="card-main" href="pdf-page-remover/">
@@ -116,8 +135,9 @@
           </div>
         </article>
 
+        </div>
       </div>
-    </div>
+    </section>
   </main>
 
   <footer class="site">

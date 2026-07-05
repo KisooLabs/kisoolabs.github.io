@@ -160,6 +160,7 @@ h1,h2,h3{line-height:1.05;letter-spacing:-.02em;font-weight:600;margin:0}
   flex-direction:column;gap:6px;font-size:15px}
 .dl-note{max-width:560px;color:var(--text-faint);font-size:14px;line-height:1.6;margin:8px 0 0}
 .dl-note strong{color:var(--text-dim)}
+.dl-alt{max-width:560px;color:var(--text-dim);font-size:15px;line-height:1.6;margin:-4px 0 0;text-align:center}
 
 /* ---- footer ---- */
 #footer{border-top:1px solid var(--border);padding-block:48px;color:var(--text-dim)}

@@ -38,23 +38,24 @@ header.site{padding-top:clamp(54px,9vw,108px);padding-bottom:clamp(30px,5vw,54px
 .hlink:hover{color:var(--text);border-color:var(--border-strong);background:rgba(255,255,255,.03)}
 
 /* ---- page sections ---- */
-.sec{padding-bottom:clamp(44px,6vw,80px)}
+.sec{border-top:1px solid var(--border);padding-block:clamp(36px,5vw,60px) clamp(48px,7vw,88px)}
 .sec-label{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint);margin:0 0 8px}
-.sec-sub{color:var(--text-dim);font-size:16px;margin:0 0 22px}
+.sec-sub{color:var(--text-dim);font-size:16px;margin:0 0 26px}
 
-/* ---- notes list (dark hub) ---- */
-.notes-list{display:flex;flex-direction:column;gap:16px}
-.note-row{display:block;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);
-  padding:22px 24px;transition:border-color .18s,transform .18s}
-.note-row:hover{border-color:var(--border-strong);transform:translateY(-2px)}
-.nr-kicker{display:flex;align-items:center;gap:9px;margin:0 0 9px}
+/* ---- notes list (dark hub, blog-index rows) ---- */
+.notes-list{display:flex;flex-direction:column}
+.note-row{display:block;padding:20px 0;border-bottom:1px solid var(--border)}
+.notes-list .note-row:first-child{padding-top:2px}
+.nr-kicker{display:flex;align-items:center;gap:9px;margin:0 0 8px}
 .nr-kicker img{width:18px;height:18px;border-radius:4px}
 .nr-kicker span{font-size:12px;color:var(--text-faint);letter-spacing:.07em;text-transform:uppercase}
-.note-row h3{font-size:20px;margin:0 0 7px;display:flex;align-items:baseline;gap:.4em}
+.nr-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.nr-head time{color:var(--text-faint);font-size:13.5px;white-space:nowrap}
+.note-row h3{font-size:21px;margin:0;display:flex;align-items:baseline;gap:.4em}
 .note-row h3 .arr{color:var(--text-faint);font-weight:400;transition:transform .18s,color .18s}
 .note-row:hover h3 .arr{transform:translateX(3px);color:var(--text)}
-.nr-sub{color:var(--text-dim);font-size:15.5px;line-height:1.55;margin:0;max-width:70ch}
-.all-notes{margin:16px 0 0;font-size:14px;color:var(--text-faint)}
+.nr-sub{color:var(--text-dim);font-size:15.5px;line-height:1.55;margin:8px 0 0;max-width:70ch}
+.all-notes{margin:18px 0 0;font-size:14px;color:var(--text-faint)}
 .all-notes a{color:var(--text-dim)}.all-notes a:hover{color:var(--text)}
 
 /* ---- project grid ---- */

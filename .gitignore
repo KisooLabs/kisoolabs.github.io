@@ -2,3 +2,6 @@
 Thumbs.db
 *.log
 node_modules/
+
+# Internal state — must NOT be published (repo root is the Pages artifact)
+TODO.md

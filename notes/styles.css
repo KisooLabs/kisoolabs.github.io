@@ -73,9 +73,13 @@ article.note{padding:clamp(40px,6vw,72px) 0 clamp(48px,7vw,90px)}
   hyphens:auto;-webkit-hyphens:auto}
 .note p a,.note li a{color:var(--accent);text-decoration:underline;text-decoration-color:rgba(15,118,214,.35);text-underline-offset:3px}
 .note p a:hover,.note li a:hover{text-decoration-color:var(--accent)}
-.note ul{margin:0 0 20px;padding-left:1.2em}
+.note ul,.note ol{margin:0 0 20px;padding-left:1.2em}
 .note li{margin-bottom:8px;font-size:17.5px;line-height:1.65;text-align:justify;
   hyphens:auto;-webkit-hyphens:auto}
+.note pre{margin:0 0 20px;padding:16px 18px;background:#16161A;color:#e9e9ee;border-radius:12px;
+  overflow-x:auto;font-size:13.5px;line-height:1.55}
+.note pre code{font-family:ui-monospace,'Cascadia Code','SF Mono',Menlo,Consolas,monospace;
+  white-space:pre-wrap;word-break:break-all}
 .note em{font-style:italic}
 .note kbd{font-family:var(--font);font-size:.86em;border:1px solid var(--border-strong);border-bottom-width:2px;
   border-radius:6px;padding:1px 7px 2px;background:var(--bg-soft);white-space:nowrap}

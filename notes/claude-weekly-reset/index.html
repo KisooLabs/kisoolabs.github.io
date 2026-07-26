@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Pick Your Claude Reset Day Before You Pay — Notes — Kisoo Kim</title>
+  <meta name="description" content="Claude's weekly limit resets on a day you can't choose — it's assigned to your account at random. Here's how to see a free account's reset day from the browser console, before you subscribe.">
+  <link rel="canonical" href="https://kisoolabs.github.io/notes/claude-weekly-reset/">
+  <meta property="og:title" content="Pick Your Claude Reset Day Before You Pay">
+  <meta property="og:description" content="How to see a free Claude account's weekly reset day from the browser console — useful if you run more than one Claude Code subscription.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://kisoolabs.github.io/notes/claude-weekly-reset/">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="../../assets/favicon.svg">
+  <link rel="alternate" type="application/rss+xml" title="Kisoo Kim — Notes" href="../feed.xml">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header id="nav">
+    <div class="container nav-row">
+      <div class="nav-left">
+        <a class="nav-back" href="../">← Notes</a>
+        <span class="nav-title">Pick Your Claude Reset Day</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <article class="note">
+      <div class="container">
+        <div class="note-inner">
+          <p class="eyebrow reveal">Notes · Claude Code</p>
+          <h1 class="reveal">Pick Your Claude Reset Day Before You Pay</h1>
+          <p class="note-meta reveal"><time datetime="2026-07-26">July 26, 2026</time></p>
+          <p class="standfirst reveal">Claude's weekly limit refills on a day you don't get to choose —
+            it's assigned to each account, apparently at random, and it never moves. If you run more than
+            one Claude Code subscription, that day matters. Here's how to see it on a <em>free</em>
+            account, before any money changes hands.</p>
+
+          <h2>The problem</h2>
+          <p>I use Claude Code heavily enough that one Max subscription doesn't cover a busy week, so I
+            keep several accounts and switch with <kbd>/logout</kbd> → <kbd>/login</kbd> whenever one
+            hits its weekly limit. Plenty of heavy users do the same. What nobody tells you up front is
+            that each account's weekly limit resets at its own fixed day and time — and the spacing
+            between those resets decides how smooth your week feels.</p>
+
+          <h2>Why the reset days should be spread out</h2>
+          <p>Think of each account as a tank of fuel that refills once a week. If your accounts all
+            refill early in the week, you're rich on Tuesday and stranded all weekend. My three accounts
+            used to reset Tuesday, Thursday, and Friday: gaps of 47, 26, and 95 hours. Two refills landed
+            almost on top of each other, and then came a four-day desert with nothing. Ideally, with
+            three accounts, a fresh tank should arrive every 2–2.5 days.</p>
+
+          <h2>You don't choose the day — you draw it</h2>
+          <p>The reset day is assigned to the account itself, seemingly at random, and it's permanent.
+            People have tried to move it by cancelling and resubscribing on a different day; the old
+            reset day survives. Anthropic's docs say the reset time is fixed to your account regardless
+            of when your subscription starts. So the only way to get a <em>new</em> reset day is a
+            <em>new</em> account.</p>
+          <p>Which suggests an obvious plan: create a fresh account, check which day it drew, and only
+            subscribe if the day fills a hole in your schedule. Except —</p>
+
+          <h2>Free accounts don't show it</h2>
+          <p>Paid accounts can see their reset time under Settings → Usage. Free accounts get no such
+            screen. Nobody wants to pay $100–200 just to discover the new account resets on the same day
+            as an old one.</p>
+
+          <h2>The console trick</h2>
+          <p>The Claude website itself knows your reset time — its own pages fetch it from an internal
+            endpoint whenever you're logged in. You can ask that same endpoint directly from your
+            browser's console. Nothing gets installed, no third-party extension sees your account, and
+            the request goes only to claude.ai, exactly like the ones the page already makes.</p>
+          <ol>
+            <li>Log in to <a href="https://claude.ai">claude.ai</a> in Chrome with the account you want
+              to check, and send at least one message so the account has some usage history.</li>
+            <li>Open the console: press <kbd>F12</kbd>, then click the <em>Console</em> tab
+              (or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>J</kbd> on Windows,
+              <kbd>⌘</kbd>+<kbd>Option</kbd>+<kbd>J</kbd> on Mac).</li>
+            <li>Paste the snippet below and press <kbd>Enter</kbd>. (If Chrome blocks the paste, type
+              <em>allow pasting</em> in the console first, press <kbd>Enter</kbd>, and paste again.)</li>
+          </ol>
+          <pre><code>javascript:(async()=>{const o=(await(await fetch('/api/bootstrap')).json()).account.memberships[0].organization.uuid,u=await(await fetch(`/api/organizations/${o}/usage`)).json(),z=d=>new Intl.DateTimeFormat('en-US',{timeZoneName:'short'}).formatToParts(d).find(p=>p.type=='timeZoneName').value,f=t=>{const d=new Date(t);return `${d.toLocaleString('en-US',{dateStyle:'long',timeStyle:'medium'})} (${z(d)})`};alert(`5h reset: ${f(u.five_hour.resets_at)}\n7d reset: ${f(u.seven_day.resets_at)}`)})()</code></pre>
+          <p>A popup shows two times in your local timezone: when the 5-hour window resets, and — the
+            one you care about — when the 7-day window resets. The weekday of that second time is the
+            account's assigned reset day, forever.</p>
+          <p>How it works, in one sentence: the snippet asks claude.ai which organization your account
+            belongs to (<em>/api/bootstrap</em>), then asks for that organization's usage clock
+            (<em>/api/organizations/…/usage</em>), and formats the two reset timestamps into a
+            readable alert.</p>
+
+          <h2>Reroll until the schedule is even</h2>
+          <p>Now the plan works end to end. Create a free account, check its reset day from the console,
+            and if it clashes with the accounts you already have, make another free account and check
+            again. Free accounts cost nothing, so you can keep drawing until you get a day that spreads
+            your fleet out — then subscribe on the winner.</p>
+          <p>That's what I did. A new account drew Saturday 2&nbsp;PM, turning my
+            Tuesday–Thursday–Friday cluster into Tuesday–Thursday–Saturday: gaps of 47, 59, and 62
+            hours — almost perfectly even.</p>
+          <p class="aside">Two caveats. This reads an unofficial endpoint, so it may stop working
+            whenever Anthropic changes their internals. And while the docs say the reset day sticks to
+            the account regardless of when a subscription begins, it's worth confirming in
+            Settings → Usage right after you subscribe, while a refund is still easy.</p>
+
+          <p class="colophon">Written July 2026. ·
+            <a href="../">More notes</a> · <a href="../../">All projects</a></p>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site">
+    <div class="container foot">
+      <span>© Kisoo Kim</span>
+      <nav><a href="../">← Notes</a></nav>
+    </div>
+  </footer>
+</body>
+</html>

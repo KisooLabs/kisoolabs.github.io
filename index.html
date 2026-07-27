@@ -12,6 +12,7 @@
   <meta property="og:url" content="https://kisoolabs.github.io/">
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="assets/favicon.svg">
+  <link rel="alternate" type="application/rss+xml" title="Kisoo Kim — Notes" href="notes/feed.xml">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -20,126 +21,122 @@
       <p class="brand reveal">Kisoo Kim</p>
       <h1 class="lead reveal">Small software I build.</h1>
       <p class="tagline reveal">Little apps and tools I make to scratch my own itch — and share.</p>
-      <nav class="hlinks reveal">
-        <a class="hlink" href="https://github.com/kisoolabs" target="_blank" rel="noopener">GitHub ↗</a>
-        <a class="hlink" href="notes/feed.xml">RSS</a>
-      </nav>
     </div>
   </header>
 
   <main>
     <section class="sec" id="notes">
       <div class="container">
-        <p class="sec-label reveal">Notes</p>
-        <p class="sec-sub reveal">The stories behind the things I build.</p>
+        <div class="sec-head">
+          <p class="sec-label reveal">Recent Notes</p>
+          <a class="view-all reveal" href="notes/">View all →</a>
+        </div>
         <div class="notes-list">
+        <!-- BUILD:notes:start -->
+          <a class="note-row reveal" href="notes/claude-weekly-reset/">
+            <p class="nr-kicker">Claude Code · Workflow</p>
+            <div class="nr-head">
+              <h3>Pick Your Claude Reset Day Before You Pay <span class="arr">→</span></h3>
+              <time datetime="2026-07-26">Jul 26, 2026</time>
+            </div>
+            <p class="nr-sub">Claude's weekly limit resets on a day assigned at random — one paste into the browser console reveals it before you pay.</p>
+          </a>
           <a class="note-row reveal" href="notes/making-mactab/">
-            <p class="nr-kicker"><img src="mactab/assets/icon.svg" alt=""><span>MacTab · macOS &amp; Windows</span></p>
+            <p class="nr-kicker">MacTab · macOS &amp; Windows</p>
             <div class="nr-head">
               <h3>Making MacTab <span class="arr">→</span></h3>
               <time datetime="2026-07-05">Jul 5, 2026</time>
             </div>
-            <p class="nr-sub">Why I replaced my Mac's ⌘Tab with a real <em>window</em> switcher — and then
-              rebuilt the same thing, natively, for Windows. Featuring a keyboard hook that starved, a
-              window parked one pixel on-screen, and the case for deleting features.</p>
+            <p class="nr-sub">Why I replaced my Mac's ⌘Tab with a real <em>window</em> switcher — then rebuilt it, natively, for Windows.</p>
           </a>
+        <!-- BUILD:notes:end -->
         </div>
-        <p class="all-notes reveal"><a href="notes/">All notes →</a> · <a href="notes/feed.xml">RSS</a></p>
       </div>
     </section>
 
-    <section class="sec" id="software">
+    <section class="sec" id="programs">
       <div class="container">
-        <p class="sec-label reveal">Software</p>
-        <p class="sec-sub reveal">Apps and tools for desktop and web.</p>
-        <div class="grid">
-
-        <article class="card reveal">
-          <a class="card-main" href="pdf-page-remover/">
-            <div class="card-thumb">
-              <img src="pdf-page-remover/assets/og.png"
-                   alt="PDF Page Remover — a browser popup showing a grid of PDF page thumbnails to pick which pages to remove.">
-            </div>
-            <div class="card-text">
-              <h3>PDF Page Remover <span class="arr">→</span></h3>
-              <p>Remove unwanted pages from any PDF and save a clean copy — with a one-click JSTOR cover remover. Runs entirely in your browser.</p>
-            </div>
-          </a>
-          <div class="card-meta">
-            <span class="tag">Chrome extension</span>
-            <span class="card-gh" style="color:var(--text-faint)">Free</span>
-          </div>
-        </article>
-
-        <article class="card reveal">
-          <a class="card-main" href="mactab/">
-            <div class="card-thumb">
-              <img src="mactab/assets/thumb.svg"
-                   alt="MacTab — a window switcher showing a list of open windows with a live preview pane.">
-            </div>
-            <div class="card-text">
-              <h3>MacTab <span class="arr">→</span></h3>
-              <p>A faster window switcher for macOS &amp; Windows — every window in most-recent order, with a live preview of the one you're about to switch to.</p>
-            </div>
-          </a>
-          <div class="card-meta">
-            <span class="tag">macOS · Windows</span>
-            <span class="card-gh" style="color:var(--text-faint)">Free</span>
-          </div>
-        </article>
-
-        <article class="card reveal">
-          <a class="card-main" href="usagepop/">
-            <div class="card-thumb">
-              <img src="usagepop/assets/demo-poster.jpg"
-                   alt="UsagePop — a usage panel popping up from the Windows system tray.">
-            </div>
-            <div class="card-text">
-              <h3>UsagePop <span class="arr">→</span></h3>
-              <p>Your Claude Code &amp; Codex usage limits, always in sight — 5-hour and 7-day windows in a panel that pops from a screen corner.</p>
-            </div>
-          </a>
-          <div class="card-meta">
-            <span class="tag">Windows</span>
-            <span class="card-gh" style="color:var(--text-faint)">Free</span>
-          </div>
-        </article>
-
-        <article class="card reveal">
-          <a class="card-main" href="https://literview.com" target="_blank" rel="noopener">
-            <div class="card-thumb">
-              <img src="assets/literview-thumb.jpg"
-                   alt="LiterView — a feed of newly published social and behavioral science papers.">
-            </div>
-            <div class="card-text">
-              <h3>LiterView <span class="arr">↗</span></h3>
-              <p>Paper discovery for the social &amp; behavioral sciences — a clean feed of new publications, filtered by field and time.</p>
-            </div>
-          </a>
-          <div class="card-meta">
-            <span class="tag">Web</span>
-            <a class="card-gh" href="https://literview.com" target="_blank" rel="noopener">literview.com ↗</a>
-          </div>
-        </article>
-
-        <article class="card reveal">
-          <a class="card-main" href="https://accutodo.vercel.app" target="_blank" rel="noopener">
-            <div class="card-thumb">
-              <img src="assets/accutodo-thumb.jpg"
-                   alt="AccuTodo — a week-at-a-glance to-do planner showing last, this, and next week.">
-            </div>
-            <div class="card-text">
-              <h3>AccuTodo <span class="arr">↗</span></h3>
-              <p>A week-at-a-glance to-do planner — last week, this week, and next, all in one calendar view.</p>
-            </div>
-          </a>
-          <div class="card-meta">
-            <span class="tag">Web</span>
-            <a class="card-gh" href="https://accutodo.vercel.app" target="_blank" rel="noopener">accutodo.vercel.app ↗</a>
-          </div>
-        </article>
-
+        <div class="sec-head">
+          <p class="sec-label reveal">Programs</p>
         </div>
+        <!-- BUILD:programs:start -->
+        <article class="prog reveal">
+          <div class="prog-thumb"><img src="usagepop/assets/demo-poster.jpg" alt="UsagePop — a usage panel popping up from the Windows system tray."></div>
+          <div class="prog-body">
+            <div class="prog-title"><h3>UsagePop</h3>
+              <span class="plat">
+                <svg viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="Windows"><title>Windows</title><path d="M3 3h8.5v8.5H3zM12.5 3H21v8.5h-8.5zM3 12.5h8.5V21H3zM12.5 12.5H21V21h-8.5z"/></svg>
+              </span>
+            </div>
+            <p class="prog-desc">Your Claude Code &amp; Codex usage limits, always in sight — 5-hour and 7-day windows in a panel that pops from a screen corner.</p>
+            <div class="prog-actions">
+              <a class="pbtn" href="usagepop/">See program <span class="arr">→</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="prog reveal">
+          <div class="prog-thumb"><img src="mactab/assets/thumb.svg" alt="MacTab — a window switcher showing a list of open windows with a live preview pane."></div>
+          <div class="prog-body">
+            <div class="prog-title"><h3>MacTab</h3>
+              <span class="plat">
+                <svg viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="macOS"><title>macOS</title><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.03 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.56-1.702"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="Windows"><title>Windows</title><path d="M3 3h8.5v8.5H3zM12.5 3H21v8.5h-8.5zM3 12.5h8.5V21H3zM12.5 12.5H21V21h-8.5z"/></svg>
+              </span>
+            </div>
+            <p class="prog-desc">A faster window switcher — every window in most-recent order, with a live preview of the one you're about to switch to.</p>
+            <div class="prog-actions">
+              <a class="pbtn" href="mactab/">See program <span class="arr">→</span></a>
+              <a class="pbtn note" href="notes/making-mactab/">Making note <time>· Jul 5, 2026</time></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="prog reveal">
+          <div class="prog-thumb"><img src="pdf-page-remover/assets/og.png" alt="PDF Page Remover — a browser popup showing a grid of PDF page thumbnails to pick which pages to remove."></div>
+          <div class="prog-body">
+            <div class="prog-title"><h3>PDF Page Remover</h3>
+              <span class="plat">
+                <svg viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="Chrome extension"><title>Chrome extension</title><path d="M20.5 11H19V7c0-1.1-.9-2-2-2h-4V3.5C13 2.12 11.88 1 10.5 1S8 2.12 8 3.5V5H4c-1.1 0-2 .9-2 2v3.8h1.5c1.49 0 2.7 1.21 2.7 2.7s-1.21 2.7-2.7 2.7H2V20c0 1.1.9 2 2 2h3.8v-1.5c0-1.49 1.21-2.7 2.7-2.7 1.49 0 2.7 1.21 2.7 2.7V22H17c1.1 0 2-.9 2-2v-4h1.5c1.38 0 2.5-1.12 2.5-2.5S21.88 11 20.5 11z"/></svg>
+              </span>
+            </div>
+            <p class="prog-desc">Remove unwanted pages from any PDF and save a clean copy — with a one-click JSTOR cover remover. Runs entirely in your browser.</p>
+            <div class="prog-actions">
+              <a class="pbtn" href="pdf-page-remover/">See program <span class="arr">→</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="prog reveal">
+          <div class="prog-thumb"><img src="assets/literview-thumb.jpg" alt="LiterView — a feed of newly published social and behavioral science papers."></div>
+          <div class="prog-body">
+            <div class="prog-title"><h3>LiterView</h3>
+              <span class="plat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" role="img" aria-label="Web"><title>Web</title><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3.4 2.8 14.6 0 18M12 3c-2.8 3.4-2.8 14.6 0 18"/></svg>
+              </span>
+            </div>
+            <p class="prog-desc">Paper discovery for the social &amp; behavioral sciences — a clean feed of new publications, filtered by field and time.</p>
+            <div class="prog-actions">
+              <a class="pbtn" href="https://literview.com" target="_blank" rel="noopener">See program <span class="arr">↗</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="prog reveal">
+          <div class="prog-thumb"><img src="assets/accutodo-thumb.jpg" alt="AccuTodo — a week-at-a-glance to-do planner showing last, this, and next week."></div>
+          <div class="prog-body">
+            <div class="prog-title"><h3>AccuTodo</h3>
+              <span class="plat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" role="img" aria-label="Web"><title>Web</title><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3.4 2.8 14.6 0 18M12 3c-2.8 3.4-2.8 14.6 0 18"/></svg>
+              </span>
+            </div>
+            <p class="prog-desc">A week-at-a-glance to-do planner — last week, this week, and next, all in one calendar view.</p>
+            <div class="prog-actions">
+              <a class="pbtn" href="https://accutodo.vercel.app" target="_blank" rel="noopener">See program <span class="arr">↗</span></a>
+            </div>
+          </div>
+        </article>
+        <!-- BUILD:programs:end -->
       </div>
     </section>
   </main>
@@ -148,7 +145,9 @@
     <div class="container foot">
       <span>© Kisoo Kim</span>
       <nav>
-        <a href="https://github.com/kisoolabs" target="_blank" rel="noopener">GitHub</a>
+        <a href="notes/">Notes</a> ·
+        <a href="https://github.com/kisoolabs" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="notes/feed.xml">RSS</a>
       </nav>
     </div>
   </footer>

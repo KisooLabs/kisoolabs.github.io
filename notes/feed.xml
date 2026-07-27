@@ -11,13 +11,13 @@
       <link>https://kisoolabs.github.io/notes/claude-weekly-reset/</link>
       <guid isPermaLink="true">https://kisoolabs.github.io/notes/claude-weekly-reset/</guid>
       <pubDate>Sun, 26 Jul 2026 00:00:00 GMT</pubDate>
-      <description>Claude's weekly limit resets on a day assigned to your account at random — and free accounts won't tell you which. One paste into the browser console reveals it, so you can line up multiple Claude Code subscriptions before paying.</description>
+      <description>Claude's weekly limit resets on a day assigned to your account at random — and free accounts won't tell you which. One paste into the browser console reveals it, so you can line up multiple Claude Code subscriptions before paying for any of them.</description>
     </item>
     <item>
       <title>Making MacTab</title>
       <link>https://kisoolabs.github.io/notes/making-mactab/</link>
       <guid isPermaLink="true">https://kisoolabs.github.io/notes/making-mactab/</guid>
-      <pubDate>Sat, 05 Jul 2026 00:00:00 GMT</pubDate>
+      <pubDate>Sun, 05 Jul 2026 00:00:00 GMT</pubDate>
       <description>Why I replaced my Mac's ⌘Tab with a real window switcher — and then rebuilt the same thing, natively, for Windows. Featuring a keyboard hook that starved, a window parked one pixel on-screen, and the case for deleting features.</description>
     </item>
   </channel>

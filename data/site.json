@@ -1,0 +1,79 @@
+{
+  "_comment": "Single source of truth for the notes list and the program list. Edit here, then run: python tools/build_site.py",
+
+  "notes_on_home": 5,
+
+  "notes": [
+    {
+      "slug": "claude-weekly-reset",
+      "title": "Pick Your Claude Reset Day Before You Pay",
+      "date": "2026-07-26",
+      "kicker": "Claude Code · Workflow",
+      "program": null,
+      "short": "Claude's weekly limit resets on a day assigned at random — one paste into the browser console reveals it before you pay.",
+      "summary": "Claude's weekly limit resets on a day assigned to your account at random — and free accounts won't tell you which. One paste into the browser console reveals it, so you can line up multiple Claude Code subscriptions <em>before</em> paying for any of them."
+    },
+    {
+      "slug": "making-mactab",
+      "title": "Making MacTab",
+      "date": "2026-07-05",
+      "kicker": "MacTab · macOS &amp; Windows",
+      "program": "mactab",
+      "short": "Why I replaced my Mac's ⌘Tab with a real <em>window</em> switcher — then rebuilt it, natively, for Windows.",
+      "summary": "Why I replaced my Mac's ⌘Tab with a real <em>window</em> switcher — and then rebuilt the same thing, natively, for Windows. Featuring a keyboard hook that starved, a window parked one pixel on-screen, and the case for deleting features."
+    }
+  ],
+
+  "programs": [
+    {
+      "id": "usagepop",
+      "name": "UsagePop",
+      "platforms": ["windows"],
+      "href": "usagepop/",
+      "external": false,
+      "thumb": "usagepop/assets/demo-poster.jpg",
+      "alt": "UsagePop — a usage panel popping up from the Windows system tray.",
+      "desc": "Your Claude Code &amp; Codex usage limits, always in sight — 5-hour and 7-day windows in a panel that pops from a screen corner."
+    },
+    {
+      "id": "mactab",
+      "name": "MacTab",
+      "platforms": ["macos", "windows"],
+      "href": "mactab/",
+      "external": false,
+      "thumb": "mactab/assets/thumb.svg",
+      "alt": "MacTab — a window switcher showing a list of open windows with a live preview pane.",
+      "desc": "A faster window switcher — every window in most-recent order, with a live preview of the one you're about to switch to."
+    },
+    {
+      "id": "pdf-page-remover",
+      "name": "PDF Page Remover",
+      "platforms": ["chrome"],
+      "href": "pdf-page-remover/",
+      "external": false,
+      "thumb": "pdf-page-remover/assets/og.png",
+      "alt": "PDF Page Remover — a browser popup showing a grid of PDF page thumbnails to pick which pages to remove.",
+      "desc": "Remove unwanted pages from any PDF and save a clean copy — with a one-click JSTOR cover remover. Runs entirely in your browser."
+    },
+    {
+      "id": "literview",
+      "name": "LiterView",
+      "platforms": ["web"],
+      "href": "https://literview.com",
+      "external": true,
+      "thumb": "assets/literview-thumb.jpg",
+      "alt": "LiterView — a feed of newly published social and behavioral science papers.",
+      "desc": "Paper discovery for the social &amp; behavioral sciences — a clean feed of new publications, filtered by field and time."
+    },
+    {
+      "id": "accutodo",
+      "name": "AccuTodo",
+      "platforms": ["web"],
+      "href": "https://accutodo.vercel.app",
+      "external": true,
+      "thumb": "assets/accutodo-thumb.jpg",
+      "alt": "AccuTodo — a week-at-a-glance to-do planner showing last, this, and next week.",
+      "desc": "A week-at-a-glance to-do planner — last week, this week, and next, all in one calendar view."
+    }
+  ]
+}

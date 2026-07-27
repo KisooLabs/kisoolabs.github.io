@@ -3,9 +3,9 @@
 @font-face{font-family:'Geist';src:url('../fonts/Geist-SemiBold.woff2') format('woff2');font-weight:600;font-display:swap}
 
 :root{
-  --bg:#ffffff; --bg-soft:#F5F6F8; --bg-card:#ffffff;
-  --text:#16161A; --text-dim:#565660; --text-faint:#8C8C95;
-  --border:rgba(0,0,0,.09); --border-strong:rgba(0,0,0,.15);
+  --bg:#FAFAF7; --bg-soft:#F1F0EC; --bg-card:#ffffff;
+  --text:#1C1917; --text-dim:#57534E; --text-faint:#8A8580;
+  --border:rgba(28,25,23,.10); --border-strong:rgba(28,25,23,.22);
   --accent:#0f76d6; --accent-2:#1a6cbb; --accent-3:#33c2f1;
   --radius:16px; --container:1080px; --prose:720px;
   --shadow:0 1px 2px rgba(16,24,40,.06),0 12px 32px rgba(16,24,40,.08);
@@ -34,7 +34,7 @@ h1,h2,h3{line-height:1.12;letter-spacing:-.02em;font-weight:600;margin:0}
 .btn.sm{padding:9px 16px;font-size:14px}
 
 /* nav */
-#nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.78);backdrop-filter:blur(12px);
+#nav{position:sticky;top:0;z-index:10;background:rgba(250,250,247,.8);backdrop-filter:blur(12px);
   -webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
 .nav-row{display:flex;align-items:center;justify-content:space-between;height:60px}
 .nav-left{display:flex;align-items:center;gap:14px}
@@ -94,6 +94,7 @@ article.note{padding:clamp(40px,6vw,72px) 0 clamp(48px,7vw,90px)}
 .note .colophon{margin-top:56px;padding-top:22px;border-top:1px solid var(--border);
   color:var(--text-faint);font-size:14.5px;text-align:left}
 .note .colophon a{color:var(--text-dim)}
+.note pre{background:#1C1917}
 
 /* product card at top of an article */
 .prod-card{display:flex;align-items:center;gap:20px;flex-wrap:wrap;border:1px solid var(--border);

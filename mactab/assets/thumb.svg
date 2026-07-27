@@ -21,5 +21,5 @@
     </g>
   </g>
   <text x="300" y="171" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-size="54" font-weight="700" fill="#16161A">MacTab</text>
-  <text x="302" y="206" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-size="20.5" fill="#565660">Window switcher · macOS &amp; Windows</text>
+  <text x="302" y="206" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-size="20.5" textLength="330" lengthAdjust="spacingAndGlyphs" fill="#565660">Window switcher · macOS &amp; Windows</text>
 </svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Claude Combo — a VS Code QuickPick listing model and effort combos." font-family="'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <rect width="640" height="360" fill="#FAFAF7"/>
+
+  <rect x="42" y="44" width="556" height="272" rx="16" fill="#FFFFFF" stroke="#1C1917" stroke-opacity=".12"/>
+
+  <rect x="43" y="45" width="554" height="90" fill="#F1F0EC"/>
+  <rect x="43" y="45" width="6" height="90" fill="#0f76d6"/>
+  <text x="82" y="101" font-size="34" font-weight="600" fill="#1C1917">Fable · xhigh</text>
+  <text x="404" y="100" font-size="24" fill="#8A8580">judgment</text>
+
+  <text x="82" y="191" font-size="34" font-weight="600" fill="#1C1917">Opus · medium</text>
+  <text x="404" y="190" font-size="24" fill="#8A8580">execution</text>
+
+  <text x="82" y="281" font-size="34" font-weight="600" fill="#1C1917">Sonnet · low</text>
+  <text x="404" y="280" font-size="24" fill="#8A8580">mechanical</text>
+</svg>

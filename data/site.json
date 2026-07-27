@@ -26,6 +26,16 @@
 
   "programs": [
     {
+      "id": "claude-combo",
+      "name": "Claude Combo",
+      "platforms": ["vscode"],
+      "href": "https://github.com/kisoolabs/claude-combo",
+      "external": true,
+      "thumb": "assets/claude-combo-thumb.svg",
+      "alt": "Claude Combo — a VS Code QuickPick listing model and effort combos.",
+      "desc": "Pick a Claude Code model <em>and</em> effort level in one keystroke — a VS Code QuickPick of the combos you define, instead of /model then /effort."
+    },
+    {
       "id": "usagepop",
       "name": "UsagePop",
       "platforms": ["windows"],

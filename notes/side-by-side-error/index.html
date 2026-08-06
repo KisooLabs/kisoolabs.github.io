@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>A Side-by-Side Error Names Its Own Fix — Notes — Kisoo Kim</title>
+  <meta name="description" content="Windows says a program's side-by-side configuration is incorrect and nothing more. The Event Viewer entry behind it names the exact runtime you're missing — version and architecture included.">
+  <link rel="canonical" href="https://kisoolabs.github.io/notes/side-by-side-error/">
+  <meta property="og:title" content="A Side-by-Side Error Names Its Own Fix">
+  <meta property="og:description" content="The useless Windows error, the Event Viewer entry that decodes it, and the one right download — worked through on a dead Logitech SetPoint.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://kisoolabs.github.io/notes/side-by-side-error/">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="../../assets/favicon.svg">
+  <link rel="alternate" type="application/rss+xml" title="Kisoo Kim — Notes" href="../feed.xml">
+  <link rel="preload" href="../../fonts/Geist-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../fonts/Geist-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../fonts/Geist-Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header id="nav">
+    <div class="container nav-row">
+      <div class="nav-left">
+        <a class="nav-back" href="../">← Notes</a>
+        <span class="nav-title">A Side-by-Side Error Names Its Own Fix</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <article class="note">
+      <div class="container">
+        <div class="note-inner">
+          <p class="eyebrow reveal">Notes · Windows</p>
+          <h1 class="reveal">A Side-by-Side Error Names Its Own Fix</h1>
+          <p class="note-meta reveal"><time datetime="2026-08-06">August 6, 2026</time></p>
+          <p class="standfirst reveal">Windows tells you that a program's
+            <em>side-by-side configuration is incorrect</em> and then stops talking. The advice you
+            find online — &ldquo;install the Visual C++ redistributable&rdquo; — is a coin flip across
+            roughly a dozen packages. But the error has already written down its own answer, in a
+            place nobody looks.</p>
+
+          <h2>The dead program</h2>
+          <p>I have a Logitech K810 keyboard, which insists on <kbd>Fn</kbd> before <kbd>F1</kbd>–<kbd>F12</kbd>.
+            Logitech SetPoint can invert that, so I reinstalled it. Double-clicking the executable did
+            nothing at all — no window, no error. Running it as administrator finally produced a
+            message:</p>
+          <blockquote>
+            <p>The application has failed to start because its side-by-side configuration is
+              incorrect. Please see the application event log or use the command-line sxstrace.exe
+              tool for more detail.</p>
+          </blockquote>
+          <p>Which names no file, no version, and no package. Search the web and you'll be told to
+            install &ldquo;the Visual C++ redistributable.&rdquo; There are about a dozen of those —
+            2005, 2008, 2010, 2012, 2013, 2015–2022 — each in x86 and x64. Install the wrong one and
+            absolutely nothing changes, which is what makes this error feel unfixable.</p>
+
+          <h2>The event log has the answer</h2>
+          <p>The message says <em>see the application event log</em>, and unusually, that is not
+            boilerplate. Windows records the precise dependency it could not resolve.</p>
+          <ol>
+            <li>Press <kbd>Win</kbd>+<kbd>R</kbd>, type <kbd>eventvwr.msc</kbd>, press <kbd>Enter</kbd>.</li>
+            <li>Go to <em>Windows Logs → Application</em>.</li>
+            <li>Find the most recent error whose <em>Source</em> is <strong>SideBySide</strong>.</li>
+          </ol>
+          <p>Mine read:</p>
+          <pre><code>Activation context generation failed for
+"C:\Program Files\Logitech\SetPointP\SetPoint.exe".
+Dependent Assembly Microsoft.VC90.MFC,
+  processorArchitecture="amd64",
+  publicKeyToken="1fc8b3b9a1e18e3b",
+  type="win32",
+  version="9.0.21022.8"
+could not be found.</code></pre>
+
+          <h2>Reading it</h2>
+          <p>That one line specifies the download completely, once you know the vocabulary:</p>
+          <ul>
+            <li><strong><code>VC90</code></strong> — the Visual C++ compiler version, not the year on
+              the box. 90 is Visual C++ <strong>2008</strong>. (VC80 is 2005, VC100 is 2010.)</li>
+            <li><strong><code>MFC</code></strong> — the MFC library specifically, not just the C
+              runtime. The full redistributable carries it; trimmed-down CRT-only packages don't.</li>
+            <li><strong><code>amd64</code></strong> — the <strong>64-bit</strong> build. This is the
+              one people get wrong: old-looking software feels like it should be 32-bit, and SetPoint
+              installs into a folder that suggests as much, but the log settles it.</li>
+            <li><strong><code>9.0.21022.8</code></strong> — the original 2008 release. Service Pack 1
+              is 9.0.30729.x.</li>
+          </ul>
+
+          <h2>The fix</h2>
+          <p>Microsoft Visual C++ 2008 <strong>SP1</strong> Redistributable, <strong>x64</strong>.
+            SetPoint launched on the next try.</p>
+          <p>The version numbers not matching is fine, and worth understanding, because it looks like
+            a mistake. The log asked for 9.0.21022.8; SP1 installs 9.0.30729.x. The SP1 package also
+            installs a <em>publisher policy</em> — a small manifest whose entire job is to redirect
+            requests for older 9.0 builds to the one actually present. So you install the newest 2008
+            runtime and every 2008-era program is satisfied, whichever exact build it was compiled
+            against.</p>
+          <p class="aside">Two things worth knowing. Having &ldquo;the latest&rdquo; VC++ 2015–2022
+            redistributable installed is no reason to skip this — those ship modern side-by-side
+            DLLs and never satisfy a VC90 request; the generations coexist rather than supersede one
+            another. And in the rare case SP1 doesn't take, the 2008 RTM redistributable supplies
+            9.0.21022.8 exactly, bypassing the policy question entirely.</p>
+
+          <h2>The general shape</h2>
+          <p>A side-by-side failure is not a mystery, it's a lookup. The dialog is deliberately vague
+            because the loader that failed has no user interface — but it logged the assembly name,
+            architecture, and version before dying. Two minutes in Event Viewer converts an
+            unfixable-feeling error into a single unambiguous download, and skips the reinstall-things-at-random
+            phase completely.</p>
+
+          <p class="colophon">Written August 2026. ·
+            <a href="../">More notes</a> · <a href="../../">Home</a></p>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site">
+    <div class="container foot">
+      <span>© Kisoo Kim</span>
+      <nav><a href="../">← Notes</a> · <a href="../../">Home</a> · <a href="../feed.xml">RSS</a></nav>
+    </div>
+  </footer>
+</body>
+</html>

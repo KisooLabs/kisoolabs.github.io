@@ -7,6 +7,13 @@
     <language>en</language>
     <atom:link href="https://kisoolabs.github.io/notes/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>A Side-by-Side Error Names Its Own Fix</title>
+      <link>https://kisoolabs.github.io/notes/side-by-side-error/</link>
+      <guid isPermaLink="true">https://kisoolabs.github.io/notes/side-by-side-error/</guid>
+      <pubDate>Thu, 06 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Windows says a program's side-by-side configuration is incorrect and stops talking, and the usual advice — install the Visual C++ redistributable — is a coin flip across a dozen packages. But the event log names the missing assembly down to version and architecture. Worked through on a dead Logitech SetPoint.</description>
+    </item>
+    <item>
       <title>Pick Your Claude Reset Day Before You Pay</title>
       <link>https://kisoolabs.github.io/notes/claude-weekly-reset/</link>
       <guid isPermaLink="true">https://kisoolabs.github.io/notes/claude-weekly-reset/</guid>

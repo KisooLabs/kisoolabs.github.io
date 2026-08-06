@@ -5,6 +5,15 @@
 
   "notes": [
     {
+      "slug": "side-by-side-error",
+      "title": "A Side-by-Side Error Names Its Own Fix",
+      "date": "2026-08-06",
+      "kicker": "Windows · Debugging",
+      "program": null,
+      "short": "Windows says only that a program's side-by-side configuration is incorrect. The event log behind it names the exact runtime you're missing.",
+      "summary": "Windows says a program's <em>side-by-side configuration is incorrect</em> and stops talking, and the usual advice — install the Visual C++ redistributable — is a coin flip across a dozen packages. But the event log names the missing assembly down to version and architecture. Worked through on a dead Logitech SetPoint."
+    },
+    {
       "slug": "claude-weekly-reset",
       "title": "Pick Your Claude Reset Day Before You Pay",
       "date": "2026-07-26",

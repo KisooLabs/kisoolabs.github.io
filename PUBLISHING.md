@@ -111,7 +111,9 @@ This repo deploys through a GitHub Actions workflow, not the legacy Pages pipeli
 Pages deployments to the `github-pages` environment are serialized, and a run stuck in `waiting` or `queued` blocks every later one indefinitely. On 2026-08-23 a push deployment sat `pending` behind two abandoned runs, one `waiting` since 2026-08-06 and one `queued` since 2026-07-05. Cancelling both drained the queue and the new run went green within seconds:
 
 ```bash
-gh run list --repo kisoolabs/kisoolabs.github.io --limit 40   --json databaseId,status,displayTitle   --jq '.[] | select(.status != "completed") | "\(.databaseId)  \(.status)  \(.displayTitle)"'
+gh run list --repo kisoolabs/kisoolabs.github.io --limit 40 \
+  --json databaseId,status,displayTitle \
+  --jq '.[] | select(.status != "completed") | "\(.databaseId)  \(.status)  \(.displayTitle)"'
 gh run cancel <id> --repo kisoolabs/kisoolabs.github.io
 ```
 

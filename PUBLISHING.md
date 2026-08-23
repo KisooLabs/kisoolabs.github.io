@@ -104,7 +104,20 @@ A download page that lists only benefits is a page that misleads. Whatever is tr
 
 The same text belongs in the download repo's `README.md`, the release notes, and the site page. Three places, one message.
 
-## 7. Afterwards
+## 7. If the site does not update
+
+This repo deploys through a GitHub Actions workflow, not the legacy Pages pipeline, so `gh api .../pages/builds/latest` reports a stale date and tells you nothing. Check `gh run list --repo kisoolabs/kisoolabs.github.io` instead.
+
+Pages deployments to the `github-pages` environment are serialized, and a run stuck in `waiting` or `queued` blocks every later one indefinitely. On 2026-08-23 a push deployment sat `pending` behind two abandoned runs, one `waiting` since 2026-08-06 and one `queued` since 2026-07-05. Cancelling both drained the queue and the new run went green within seconds:
+
+```bash
+gh run list --repo kisoolabs/kisoolabs.github.io --limit 40   --json databaseId,status,displayTitle   --jq '.[] | select(.status != "completed") | "\(.databaseId)  \(.status)  \(.displayTitle)"'
+gh run cancel <id> --repo kisoolabs/kisoolabs.github.io
+```
+
+Cancelling a stale run does not touch the live site, which is already serving the last successful deployment.
+
+## 8. Afterwards
 
 - Re-check any *other* product's download links if you touched a shared repo.
 - Update the product's own `STATUS.md` / `TODO.md` in its source folder.

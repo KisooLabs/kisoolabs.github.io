@@ -1,49 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Windows Hello Auto-Click — the Windows Security dialog with its OK button being confirmed automatically after a face match">
-  <defs>
-    <linearGradient id="whbg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#14331d"/>
-      <stop offset="1" stop-color="#0d1f14"/>
-    </linearGradient>
-    <radialGradient id="whglow" cx="0.5" cy="0.36" r="0.55">
-      <stop offset="0" stop-color="#2ea043" stop-opacity="0.32"/>
-      <stop offset="1" stop-color="#2ea043" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
-
-  <rect width="640" height="360" fill="url(#whbg)"/>
-  <rect width="640" height="360" fill="url(#whglow)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Windows Hello Auto-Click — the Windows Security dialog after a face match, with its OK button already confirmed.">
+  <rect width="640" height="360" fill="#F4F5F7"/>
 
   <!-- credential dialog -->
   <g>
-    <rect x="170" y="54" width="300" height="252" rx="18" fill="#202124" stroke="#ffffff" stroke-opacity="0.10"/>
-    <rect x="170" y="54" width="300" height="34" rx="18" fill="#26272b"/>
-    <rect x="170" y="72" width="300" height="16" fill="#26272b"/>
-    <rect x="188" y="66" width="104" height="9" rx="4.5" fill="#c9c9d2" fill-opacity="0.75"/>
+    <rect x="170" y="46" width="300" height="268" rx="16" fill="#FFFFFF" stroke="#E3E5EA" stroke-width="2"/>
+    <path d="M170 84 H470" stroke="#EDEFF2" stroke-width="2"/>
+    <rect x="192" y="59" width="96" height="8" rx="4" fill="#C7CBD2"/>
 
     <!-- recognized face -->
-    <circle cx="320" cy="146" r="33" fill="#33363d"/>
-    <circle cx="320" cy="146" r="33" fill="none" stroke="#2ea043" stroke-width="3"/>
-    <circle cx="320" cy="146" r="42" fill="none" stroke="#2ea043" stroke-width="2" stroke-opacity="0.3"/>
-    <circle cx="309" cy="139" r="4" fill="#9aa0aa"/>
-    <circle cx="331" cy="139" r="4" fill="#9aa0aa"/>
-    <path d="M308 157 q12 9 24 0" fill="none" stroke="#9aa0aa" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="320" cy="150" r="38" fill="#FFFFFF" stroke="#2EA043" stroke-width="3"/>
+    <circle cx="307" cy="142" r="4.5" fill="#B9BEC7"/>
+    <circle cx="333" cy="142" r="4.5" fill="#B9BEC7"/>
+    <path d="M305 162 q15 12 30 0" fill="none" stroke="#B9BEC7" stroke-width="3.5" stroke-linecap="round"/>
 
-    <rect x="256" y="196" width="128" height="11" rx="5.5" fill="#f2f2f5" fill-opacity="0.9"/>
-    <rect x="238" y="215" width="164" height="9" rx="4.5" fill="#9a9aa4" fill-opacity="0.7"/>
+    <!-- greeting lines -->
+    <rect x="256" y="206" width="128" height="10" rx="5" fill="#8C919B"/>
+    <rect x="238" y="228" width="164" height="8" rx="4" fill="#CFD3DA"/>
 
-    <!-- buttons: OK is being pressed for you -->
-    <rect x="196" y="250" width="120" height="34" rx="8" fill="#2ea043"/>
-    <rect x="190" y="244" width="132" height="46" rx="13" fill="none" stroke="#2ea043" stroke-width="2.5" stroke-opacity="0.5"/>
-    <path d="M240 267 l10 10 l22 -24" fill="none" stroke="#ffffff" stroke-width="5"
+    <!-- buttons: OK already confirmed -->
+    <rect x="196" y="258" width="122" height="36" rx="9" fill="#2EA043"/>
+    <path d="M242 276 l10 10 l22 -23" fill="none" stroke="#FFFFFF" stroke-width="5.5"
           stroke-linecap="round" stroke-linejoin="round"/>
-    <rect x="330" y="250" width="120" height="34" rx="8" fill="#34363c" stroke="#ffffff" stroke-opacity="0.08"/>
-    <rect x="366" y="264" width="48" height="7" rx="3.5" fill="#d5d5dc" fill-opacity="0.6"/>
-  </g>
-
-  <!-- cursor absent: it is confirmed without you -->
-  <g opacity="0.85">
-    <circle cx="512" cy="180" r="26" fill="#2ea043" fill-opacity="0.16"/>
-    <path d="M500 180 l9 9 l17 -19" fill="none" stroke="#2ea043" stroke-width="5"
-          stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="328" y="258" width="122" height="36" rx="9" fill="#FFFFFF" stroke="#DDE0E5" stroke-width="2"/>
+    <rect x="367" y="272" width="44" height="8" rx="4" fill="#C7CBD2"/>
   </g>
 </svg>

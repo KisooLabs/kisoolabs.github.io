@@ -73,6 +73,21 @@ curl -sL https://github.com/KisooLabs/<repo>/releases/latest/download/SHA256.txt
 
 Each product is a folder in this repo: `<slug>/index.html`, `<slug>/styles.css`, `<slug>/assets/`.
 
+**Match the page to the size of the program first.** There are two templates here, and picking the wrong one is the easiest mistake to make. Windows Hello Auto-Click shipped as a full landing page, and the owner's first reaction was that it was too loud for what the program does.
+
+| The program | The page |
+|---|---|
+| Does one thing, explained in a sentence | **Single column.** `windows-hello-auto-click/` is the template: name, one sentence, download button, three bullets, two short prose sections. ~4 KB of markup, ~2.8 KB of CSS, one screen and a half. |
+| Has several features worth showing, or a visual worth demonstrating | **Landing page.** `mactab/` is the template: hero with an illustration, feature grid, platform sections, closing download section. |
+
+A tray utility with three checkboxes is the first row. A hero mock, three card grids and a repeated download section are what you build when there is something to show, not by default.
+
+### Single column
+
+Copy `windows-hello-auto-click/styles.css` (2.8 KB, no framework, one media query) and its `index.html`. Change the accent colour, the copy, and the download URL. There is nothing else to strip.
+
+### Landing page
+
 The fastest honest start is to copy `mactab/styles.css`, which is token-driven. Recolour by editing `--accent`, `--accent-2`, `--accent-3` and the two hardcoded hover values (`rgba(15,118,214,.28)`, `background:#0c67bd`). Replace MacTab's hero mock rules (`.mock`, `.mrow`, `.mprev`, `.win-*`) with something that shows your product; keep `.hero-art`. Fonts are shared at `../fonts/Geist-*.woff2`.
 
 Reuse the page skeleton from `mactab/index.html`: sticky nav, hero (icon, eyebrow, `h1` with a `.grad` span, `.hero-sub`, `.hero-cta`, `.hero-note`, `.hero-art`), feature sections, a `#get` section, footer.
@@ -92,7 +107,9 @@ Then add a card at the top of the programs list in the root `index.html`:
 
 Thumbnails are 640×360 SVG. Icons are 256×256 SVG with a rounded rect and a white glyph.
 
-**Check it in a browser before pushing.** Serve the repo (`python -m http.server 8731`), open the product page and the index, and look at both.
+**Check it in a browser before pushing.** Serve the repo (`python -m http.server 8731`), open the product page and the index, and look at both, at a desktop width and at ~390px.
+
+One capture gotcha: a `fullPage` screenshot can show the page repeated below its own footer. That is Chrome tiling past the document height, not a duplicated DOM. Confirm with `document.querySelectorAll('h1').length` and `document.documentElement.scrollHeight` before chasing it, then screenshot at a viewport as tall as the document.
 
 ## 6. Say the uncomfortable things on the page
 

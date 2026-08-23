@@ -3,186 +3,78 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Windows Hello Auto-Click — hands-free Windows Hello face sign-in</title>
-  <meta name="description" content="When Windows Hello recognizes your face, the Windows Security dialog still waits for you to click OK. This tray utility clicks it for you, keeps the lock screen defaulting to Face, and can pre-select Face or PIN.">
+  <title>Windows Hello Auto-Click</title>
+  <meta name="description" content="Windows Hello recognizes your face, then waits for you to click OK. This tray utility clicks it.">
   <link rel="canonical" href="https://kisoolabs.github.io/windows-hello-auto-click/">
   <meta property="og:title" content="Windows Hello Auto-Click">
-  <meta property="og:description" content="Your face is recognized. Skip the click that follows.">
+  <meta property="og:description" content="Windows Hello recognizes your face, then waits for you to click OK. This tray utility clicks it.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kisoolabs.github.io/windows-hello-auto-click/">
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="assets/icon.svg">
   <link rel="preload" href="../fonts/Geist-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../fonts/Geist-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="../fonts/Geist-Medium.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header id="nav">
-    <div class="container nav-row">
-      <div class="nav-left">
-        <a class="nav-back" href="../">← Projects</a>
-        <span class="nav-title"><img src="assets/icon.svg" alt="">Windows Hello Auto-Click</span>
-      </div>
-      <a class="btn sm" href="#get">Download</a>
-    </div>
-  </header>
+  <div class="wrap">
+    <a class="back" href="../">← Projects</a>
 
-  <main>
-    <section id="hero">
-      <div class="container">
-        <img class="hero-icon reveal" src="assets/icon.svg" alt="Windows Hello Auto-Click icon" width="96" height="96">
-        <p class="eyebrow reveal">Windows 10 &amp; 11 · Windows Hello</p>
-        <h1 class="reveal">Your face is recognized.<br><span class="grad">Skip the click that follows.</span></h1>
-        <p class="hero-sub reveal">Windows Hello sees you, greets you by name, and then waits for you to
-          press <strong>OK</strong> anyway. This tray utility presses it, so face sign-in finishes
-          without your hands.</p>
-        <div class="hero-cta reveal">
-          <a class="btn" href="https://github.com/KisooLabs/windows-hello-auto-click/releases/latest/download/WindowsHelloAutoClick-Setup.exe">Download for Windows</a>
-          <a class="btn ghost" href="#consent">What it changes about consent</a>
-        </div>
-        <p class="hero-note reveal">Free · Windows 10/11 64-bit · requires an enrolled Hello face · no .NET runtime needed</p>
+    <header class="top">
+      <img src="assets/icon.svg" alt="" width="52" height="52">
+      <h1>Windows Hello Auto-Click</h1>
+      <p class="lede">Windows Hello recognizes your face, then waits for you to click <strong>OK</strong>.
+        This tray utility clicks it.</p>
 
-        <div class="hero-art reveal">
-          <div class="dlg" role="img" aria-label="The Windows Security dialog after a face match, showing a greeting and an OK button that has been confirmed automatically.">
-            <div class="dlg-bar">Windows Security</div>
-            <div class="dlg-body">
-              <div class="dlg-face"></div>
-              <p class="dlg-hi">Hello, Kisoo!</p>
-              <p class="dlg-sub">Select OK to continue.</p>
-              <div class="dlg-btns">
-                <span class="dlg-btn ok">OK</span>
-                <span class="dlg-btn">Cancel</span>
-              </div>
-            </div>
-          </div>
-          <p class="dlg-tag">OK confirmed for you, <b>1–2 ms</b> after the match</p>
-        </div>
+      <div class="get">
+        <a class="btn" href="https://github.com/KisooLabs/windows-hello-auto-click/releases/latest/download/WindowsHelloAutoClick-Setup.exe">Download</a>
+        <span class="meta">Free · Windows 10/11 64-bit · 49 MB</span>
       </div>
+    </header>
+
+    <section>
+      <h2>What it does</h2>
+      <ul>
+        <li>Clicks <strong>OK</strong> once Windows has recognized your face.</li>
+        <li>Optionally pre-selects Face or PIN when the credential dialog opens.</li>
+        <li>Keeps the lock screen defaulting to Face instead of the PIN pad.</li>
+      </ul>
+      <p class="note" style="margin-top:14px">Each one is a checkbox in the tray menu. Requires a Windows
+        Hello face already enrolled. No .NET runtime needed.</p>
     </section>
 
-    <section class="section">
-      <div class="container">
-        <h2 class="reveal">Three things, each switchable.</h2>
-        <p class="sub reveal">Everything is a checkbox in the tray menu. Turn off what you do not want
-          and the rest keeps working.</p>
-        <div class="feat">
-          <div class="f reveal">
-            <div class="k">✓</div>
-            <h3>Auto-click OK</h3>
-            <p>The OK button only exists once Windows has already recognized you, so its appearance is
-              the signal. The app waits for it and activates it.</p>
-          </div>
-          <div class="f reveal">
-            <div class="k">⇄</div>
-            <h3>Preferred method</h3>
-            <p>Pre-selects Face or PIN when the credential dialog opens. Best-effort: it needs the
-              dialog to expose its method switcher, which not every state does.</p>
-          </div>
-          <div class="f reveal">
-            <div class="k">◉</div>
-            <h3>Lock screen stays on Face</h3>
-            <p>Windows resets the sign-in default to whatever you used last. The app re-asserts Face
-              every 15 seconds, so the next logon starts on the camera, not the PIN pad.</p>
-          </div>
-        </div>
-      </div>
+    <section>
+      <h2>Before you install</h2>
+      <p>The OK button being automated is a <strong>consent step</strong>. For passkey sign-ins it is how
+        Windows records that a human deliberately approved that specific request. With this running, any
+        Windows Hello prompt raised while your face is recognized is approved without a deliberate click
+        from you.</p>
+      <p>Your face still has to be recognized first, and the app never enters, reads, or stores a PIN, a
+        password, or biometric data. But if other people use the machine, or you want a moment to read
+        each prompt before it is approved, skip it, or install it and leave auto-click off.</p>
     </section>
 
-    <section class="section alt" id="consent">
-      <div class="container">
-        <h2 class="reveal">Read this before you install.</h2>
-        <p class="sub reveal">The OK button being automated is a consent step, not decoration.</p>
-        <div class="plat">
-          <div class="p reveal">
-            <h3>What actually changes</h3>
-            <p class="stack">The honest version</p>
-            <p>For passkey (WebAuthn) sign-ins and similar operations, that click is how Windows records
-              that a human deliberately approved <em>this specific request</em>. With this utility
-              running, any Windows Hello prompt raised while your face is recognized is approved without
-              a deliberate click from you.</p>
-          </div>
-          <div class="p reveal">
-            <h3>What does not change</h3>
-            <p class="stack">The limits</p>
-            <p>Your face still has to be recognized first. The app cannot approve anything for a person
-              the camera does not recognize, and it never enters, reads, or stores a PIN, a password, or
-              biometric data. It presses a button that Windows has already decided to offer you.</p>
-          </div>
-          <div class="p reveal">
-            <h3>When to skip it</h3>
-            <p class="stack">Fair warning</p>
-            <p>If other people use the machine, or if you want a moment to read what each prompt is
-              asking before it is approved, this is not for you. You can also install it and leave
-              auto-click off, keeping only the sign-in-method and lock-screen features.</p>
-          </div>
-        </div>
-      </div>
+    <section>
+      <h2>Administrator and SmartScreen</h2>
+      <p class="note">It runs elevated because the credential dialog runs elevated, and because keeping
+        the lock screen on Face means writing a value under <code>HKEY_LOCAL_MACHINE</code>. Setup can
+        register a logon task so there is no UAC prompt at each sign-in.</p>
+      <p class="note">The build is not code-signed, so SmartScreen will warn on first run. Verify the
+        download against the published checksum instead:</p>
+      <pre><code>Get-FileHash .\WindowsHelloAutoClick-Setup.exe -Algorithm SHA256</code></pre>
+      <p class="note" style="margin-top:12px">Compare with <code>SHA256.txt</code> on the
+        <a href="https://github.com/KisooLabs/windows-hello-auto-click/releases/latest">release page</a>.
+        Scanned clean by Microsoft Defender before release.</p>
     </section>
 
-    <section class="section">
-      <div class="container">
-        <h2 class="reveal">Why it asks for Administrator.</h2>
-        <p class="sub reveal">Two reasons, both structural rather than optional.</p>
-        <div class="plat">
-          <div class="p reveal">
-            <h3>The credential dialog</h3>
-            <p class="stack">Integrity level</p>
-            <p>The "Windows Security" dialog runs elevated. Reading and activating a control inside it
-              requires a process at the same level, so a standard-privilege build could not press
-              anything.</p>
-          </div>
-          <div class="p reveal">
-            <h3>The sign-in default</h3>
-            <p class="stack">HKEY_LOCAL_MACHINE</p>
-            <p>Keeping the lock screen on Face means writing <code>LastLoggedOnProvider</code> under
-              HKEY_LOCAL_MACHINE, which standard users cannot write.</p>
-          </div>
-          <div class="p reveal">
-            <h3>No prompt at each logon</h3>
-            <p class="stack">Scheduled Task</p>
-            <p>Setup can register a logon task with the highest run level, which starts the app elevated
-              at sign-in without a UAC prompt. Uninstalling removes the task.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section alt">
-      <div class="container">
-        <h2 class="reveal">It is not code-signed.</h2>
-        <p class="sub reveal">SmartScreen will warn on first run, and that warning is doing its job.</p>
-        <p class="sub reveal" style="margin-top:18px">An unsigned program that immediately asks for
-          administrator rights and interacts with the Windows credential interface is exactly the shape
-          of thing worth being suspicious of. What is offered instead of a signature is the SHA-256
-          checksum published with every release, so you can confirm that the file you downloaded is the
-          file that was published. Run this and compare it with <code>SHA256.txt</code> on the releases
-          page:</p>
-        <p class="sub reveal"><code>Get-FileHash .\WindowsHelloAutoClick-Setup.exe -Algorithm SHA256</code></p>
-        <p class="hero-note reveal">The 0.4.3 installer was scanned clean by Microsoft Defender before release.</p>
-      </div>
-    </section>
-
-    <section class="section" id="get">
-      <div class="container" style="text-align:center">
-        <h2 class="reveal">Get Windows Hello Auto-Click.</h2>
-        <p class="sub reveal" style="margin-inline:auto">Free. Windows 10 or 11, 64-bit, with a Hello
-          face enrolled.</p>
-        <div class="hero-cta reveal">
-          <a class="btn" href="https://github.com/KisooLabs/windows-hello-auto-click/releases/latest/download/WindowsHelloAutoClick-Setup.exe">Download the installer</a>
-          <a class="btn ghost" href="https://github.com/KisooLabs/windows-hello-auto-click/releases/latest">Release notes &amp; checksum</a>
-        </div>
-        <p class="hero-note reveal">Closed source. The installer and its documentation are published;
-          the application source is not.</p>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site">
-    <div class="container foot">
-      <span>© Kisoo Kim</span>
-      <nav><a href="https://github.com/KisooLabs/windows-hello-auto-click">GitHub</a> · <a href="../">← All projects</a></nav>
-    </div>
-  </footer>
+    <footer>
+      <span>© Kisoo Kim · closed source</span>
+      <nav>
+        <a href="https://github.com/KisooLabs/windows-hello-auto-click/releases/latest">Releases</a> ·
+        <a href="https://github.com/KisooLabs/windows-hello-auto-click">GitHub</a> ·
+        <a href="../">All projects</a>
+      </nav>
+    </footer>
+  </div>
 </body>
 </html>

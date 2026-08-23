@@ -29,7 +29,8 @@ a{color:inherit}
 header.top{margin:56px 0 0}
 header.top img{width:52px;height:52px;margin-bottom:20px}
 h1{font-size:27px;font-weight:600;letter-spacing:-.02em;line-height:1.25;margin:0 0 12px}
-.lede{color:var(--dim);margin:0}
+.lede{color:var(--dim);margin:0 0 12px}
+.lede:last-of-type{margin-bottom:0}
 
 /* download */
 .get{margin:30px 0 0;display:flex;align-items:center;gap:14px;flex-wrap:wrap}

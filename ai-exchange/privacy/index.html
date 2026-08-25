@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Privacy Policy — AI Exchange — Kisoo Kim</title>
+  <meta name="description" content="AI Exchange has no server. It sends nothing anywhere, collects no analytics, and stores only which panels you have open, your interface language, and your exchange prompt.">
+  <link rel="canonical" href="https://kisoolabs.github.io/ai-exchange/privacy/">
+  <meta property="og:title" content="Privacy Policy — AI Exchange">
+  <meta property="og:description" content="No server, no analytics, no account. Everything the extension does happens inside your browser.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://kisoolabs.github.io/ai-exchange/privacy/">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="../../assets/favicon.svg">
+  <link rel="preload" href="../../fonts/Geist-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../fonts/Geist-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../fonts/Geist-Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../notes/styles.css">
+</head>
+<body>
+  <header id="nav">
+    <div class="container nav-row">
+      <div class="nav-left">
+        <a class="nav-back" href="../../">← Projects</a>
+        <span class="nav-title">AI Exchange — Privacy</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <article class="note container" style="max-width:var(--prose);padding-block:clamp(40px,6vw,72px)">
+      <h1 style="font-size:clamp(30px,4.6vw,44px);letter-spacing:-.03em;margin:0 0 14px">Privacy Policy</h1>
+      <p class="note-meta">AI Exchange · Last updated 25 August 2026 · Applies to version 3.0.0 and later</p>
+
+      <p class="standfirst">AI Exchange has no server. It does not send your data anywhere, because there is
+        nowhere for it to send data to. Everything the extension does happens inside your browser.</p>
+
+      <h2>What the extension stores</h2>
+      <p>Two entries in your browser's local extension storage, and nothing else.</p>
+      <ul>
+        <li><strong>aix_state</strong> — which chat services you have open as panels, the order you arranged
+          them in, and your interface language.</li>
+        <li><strong>crossverify_settings</strong> — the prompt template used when you press Exchange, and
+          whether auto-send is on.</li>
+      </ul>
+      <p>Both are ordinary browser storage. They stay on the machine you are using, the extension does not
+        sync them anywhere, and they are removed when you uninstall it.</p>
+
+      <h2>What the extension reads, and where that reading goes</h2>
+      <p>To do its job the extension reads text inside the panels you have open. On
+        <em>chatgpt.com</em>, <em>gemini.google.com</em>, <em>claude.ai</em> and <em>grok.com</em> it can read
+        the most recent answer, read the conversation when you ask for an export, type into the message box,
+        and press send.</p>
+      <p>That text moves in exactly two directions. It goes <strong>from one panel to another</strong> when you
+        press Exchange, passed between frames inside your own browser window. And it goes <strong>into a file
+        on your computer</strong> when you press Export and choose where to save the Markdown file.</p>
+      <p>It goes nowhere else. In particular it is never sent to the developer, to an analytics service, or to
+        any third party.</p>
+
+      <h2>What the extension does not do</h2>
+      <ul>
+        <li>No analytics, telemetry, crash reporting, or usage counting of any kind.</li>
+        <li>No advertising, and no advertising identifiers.</li>
+        <li>No account, no sign-in, no API key. You sign in to each chat service yourself, in the normal way,
+          and the panels use that session as any browser tab would.</li>
+        <li>No selling or sharing of data, because none is collected.</li>
+        <li>No access to any website other than the four listed above. The extension does not request access
+          to all sites.</li>
+      </ul>
+
+      <h2>How you can check this rather than take my word for it</h2>
+      <p>The extension is not minified or obfuscated. If you unpack the downloaded package you can read every
+        line of it. Two searches settle the claims on this page.</p>
+      <ul>
+        <li>Search the code for <em>fetch</em>, <em>XMLHttpRequest</em>, <em>WebSocket</em> or
+          <em>sendBeacon</em>. There are none.</li>
+        <li>Search for URLs. The only external addresses in the extension are the four chat services it
+          displays, plus the SVG namespace declaration that every inline graphic carries.</li>
+      </ul>
+
+      <h2>Permissions, and why each one exists</h2>
+      <ul>
+        <li><strong>Storage</strong> — to remember the two settings listed above.</li>
+        <li><strong>declarativeNetRequest</strong> — the four chat services send headers that stop a browser
+          displaying them inside a frame. A single rule, included in readable form in the package, removes
+          those headers for sub-frame requests to those four domains. Without it the side-by-side view cannot
+          exist. No other site is affected, and no rule is created while the extension runs.</li>
+        <li><strong>Access to the four chat services</strong> — to read an answer, type a prompt and press
+          send inside their panels. The extension asks for no other site.</li>
+      </ul>
+
+      <h2>Children</h2>
+      <p>The extension is not directed at children and collects nothing from anyone.</p>
+
+      <h2>Changes</h2>
+      <p>If this policy ever changes, the date at the top changes with it, and the change is described in the
+        extension's release notes.</p>
+
+      <h2>Contact</h2>
+      <p><a href="mailto:critiquerscontact@gmail.com">critiquerscontact@gmail.com</a></p>
+
+      <p class="colophon">AI Exchange is a Chrome extension by Kisoo Kim.
+        <a href="../../">Other projects</a></p>
+    </article>
+  </main>
+
+  <footer class="site">
+    <div class="container foot">
+      <span>© Kisoo Kim</span>
+      <span><a href="../../">Projects</a> · <a href="../../notes/">Notes</a></span>
+    </div>
+  </footer>
+</body>
+</html>

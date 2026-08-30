@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AI Exchange — put the chat services beside each other, then let them argue</title>
+  <meta name="description" content="A Chrome extension that opens ChatGPT, Gemini, Claude and Grok as panels in one page, then hands each panel's latest answer to the others so they check one another's work.">
+  <link rel="canonical" href="https://kisoolabs.github.io/ai-exchange/">
+  <meta property="og:title" content="AI Exchange — let the models check each other">
+  <meta property="og:description" content="Four AI chat services side by side in one page, with one click that passes each answer to the others for a critical read.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kisoolabs.github.io/ai-exchange/">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="assets/icon.svg">
+  <link rel="preload" href="../fonts/Geist-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/Geist-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/Geist-Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header id="nav">
+    <div class="container nav-row">
+      <div class="nav-left">
+        <a class="nav-back" href="../">← Projects</a>
+        <span class="nav-title"><img src="assets/icon.svg" alt="">AI Exchange</span>
+      </div>
+      <a class="btn sm ghost" href="privacy/">Privacy</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero">
+      <div class="container">
+        <img class="hero-icon reveal" src="assets/icon.svg" alt="AI Exchange icon" width="96" height="96">
+        <p class="eyebrow reveal">Chrome extension · Multi-model</p>
+        <h1 class="reveal">Put the chat services beside each other,<br><span class="grad">then let them argue.</span></h1>
+        <p class="hero-sub reveal">AI Exchange opens ChatGPT, Gemini, Claude and Grok as panels in a
+          single page. One click hands each panel's latest answer to the others, wrapped in a prompt
+          that asks them to check it rather than agree with it.</p>
+        <p class="hero-note reveal">Free · Chrome · You stay signed in to each service the normal way.
+          No API keys, no account, no server.</p>
+
+        <div class="shot reveal">
+          <img src="assets/shot-side-by-side.png" width="1280" height="800"
+               alt="Three panels side by side in one browser tab: ChatGPT, Google Gemini and Claude, each answering the same question about AI-detection software.">
+        </div>
+        <p class="shot-cap reveal">One question, three answers, one tab.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="reveal">One click, and they read each other.</h2>
+        <p class="sub reveal">Exchange reads every open panel's latest answer and fills it into the
+          others, each answer labelled with the model it came from. What comes back is not three
+          summaries of the same thing but three critiques, and the disagreements are where the
+          useful part usually is.</p>
+
+        <div class="shot reveal">
+          <img src="assets/shot-exchange.png" width="1280" height="800"
+               alt="After an exchange: Gemini writing a critique of ChatGPT's answer, Claude writing about what both other answers get right, and ChatGPT weighing Claude's position against its own.">
+        </div>
+        <p class="shot-cap reveal">Gemini critiquing ChatGPT, Claude weighing both, ChatGPT answering back.</p>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <h2 class="reveal">The rest of it.</h2>
+        <p class="sub reveal">Everything here works on the panels you already have open, in the
+          sessions you are already signed in to.</p>
+        <div class="feat">
+          <div class="f reveal">
+            <div class="k">⇄</div>
+            <h3>All or nothing</h3>
+            <p>Every panel is filled first, and only if all of them succeeded does anything get sent.
+              A panel that fails is named, so you know which one and at which step.</p>
+          </div>
+          <div class="f reveal">
+            <div class="k">→</div>
+            <h3>Broadcast</h3>
+            <p>Type once in the header and send the same prompt to every open panel, instead of
+              pasting it four times.</p>
+          </div>
+          <div class="f reveal">
+            <div class="k">↓</div>
+            <h3>Export</h3>
+            <p>Save the conversation as a Markdown file, either the full history of every panel or
+              just the latest answers.</p>
+          </div>
+          <div class="f reveal">
+            <div class="k">✎</div>
+            <h3>Your prompt</h3>
+            <p>The exchange prompt is a template you can edit, and auto-send can be turned off if you
+              would rather read what was filled in before it goes.</p>
+          </div>
+          <div class="f reveal">
+            <div class="k">⤢</div>
+            <h3>Panels, arranged</h3>
+            <p>Drag a panel by its bar to reorder it and the arrangement is remembered. Open one in
+              its own tab, reload it, or make it fullscreen.</p>
+          </div>
+          <div class="f reveal">
+            <div class="k">文</div>
+            <h3>Twelve languages</h3>
+            <p>The interface switches without reloading, so a panel's scroll position, half-typed
+              prompt and streaming answer all survive the change.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="privacy">
+      <div class="container">
+        <h2 class="reveal">Your conversations stay in your browser.</h2>
+        <p class="sub reveal">This is a design property, not a promise about how the data is handled
+          somewhere else. There is no somewhere else.</p>
+        <div class="callout reveal">
+          <h3>What the extension does not do</h3>
+          <ul>
+            <li>No server of its own, so there is nowhere for it to send anything.</li>
+            <li>No analytics, no telemetry, no account, no API key.</li>
+            <li>Access to four sites only: chatgpt.com, gemini.google.com, claude.ai, grok.com.</li>
+          </ul>
+          <p>It stores three things in your browser: which panels you have open and in what order,
+            your interface language, and your exchange prompt.</p>
+          <p><a href="privacy/">Read the privacy policy →</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="get">
+      <div class="container" style="text-align:center">
+        <h2 class="reveal">Get AI Exchange.</h2>
+        <p class="sub reveal" style="margin-inline:auto">Submitted to the Chrome Web Store and waiting
+          on review. The listing link goes here once it is approved.</p>
+        <p class="hero-note reveal">Questions or a bug to report:
+          <a href="mailto:critiquerscontact@gmail.com">critiquerscontact@gmail.com</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="container foot">
+      <span>© Kisoo Kim</span>
+      <nav><a href="privacy/">Privacy</a> · <a href="../">← All projects</a></nav>
+    </div>
+  </footer>
+</body>
+</html>

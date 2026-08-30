@@ -90,3 +90,85 @@ h1,h2,h3{line-height:1.08;letter-spacing:-.02em;font-weight:600;margin:0}
 footer.site{border-top:1px solid var(--border);padding-block:40px;color:var(--text-faint);font-size:14px}
 .foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
 .foot a{color:var(--text-dim)}.foot a:hover{color:var(--text)}
+
+/* ── Exchange demo ────────────────────────────────────────────────────────
+   A coded mock of the hub, not a screenshot, so it stays sharp at any width
+   and survives a UI re-shoot. Same pattern as the pdf-page-remover hero:
+   markup here, a timed sequence in the page's inline script, and a static
+   end-state under prefers-reduced-motion. */
+.demo{position:relative;background:var(--bg-card);user-select:none}
+.demo .dm-bar{display:flex;align-items:center;gap:8px;padding:9px 11px;border-bottom:1px solid var(--border);
+  background:linear-gradient(#fff,#fafbfc)}
+.dm-brand{width:21px;height:21px;border-radius:6px;background:var(--accent);color:#fff;display:grid;
+  place-items:center;font-size:12px;flex:none}
+.dm-name{font-weight:600;font-size:12.5px;letter-spacing:-.01em;flex:none}
+.dm-omni{flex:1;min-width:0;height:24px;border:1px solid var(--border-strong);border-radius:7px;
+  background:#fff;display:flex;align-items:center;padding:0 9px;color:var(--text-faint);font-size:11px;
+  white-space:nowrap;overflow:hidden}
+.dm-btn{flex:none;height:24px;display:inline-flex;align-items:center;gap:4px;padding:0 9px;font-size:11px;
+  font-weight:500;border:1px solid var(--border-strong);border-radius:7px;background:#fff;color:var(--text)}
+.dm-btn.icon{padding:0 6px;color:var(--text-dim)}
+/* the one the whole section is about */
+.dm-btn.dm-x{position:relative;transition:transform .16s,box-shadow .16s,background .16s,color .16s}
+.dm-btn.dm-x::after{content:"";position:absolute;inset:-5px;border-radius:11px;border:2px solid var(--accent);
+  opacity:0;transform:scale(.86);transition:opacity .22s,transform .22s}
+.demo.is-aim .dm-btn.dm-x::after{opacity:1;transform:scale(1);animation:dm-ring 1.3s ease-out infinite}
+.demo.is-press .dm-btn.dm-x{transform:scale(.94);background:var(--accent);color:#fff;border-color:var(--accent)}
+.demo.is-run .dm-btn.dm-x{background:var(--accent);color:#fff;border-color:var(--accent)}
+@keyframes dm-ring{0%{box-shadow:0 0 0 0 rgba(38,40,45,.28)}70%{box-shadow:0 0 0 9px rgba(38,40,45,0)}
+  100%{box-shadow:0 0 0 0 rgba(38,40,45,0)}}
+
+/* gate pill: FILL every panel, then SEND, which is what "all or nothing" means */
+.dm-gate{position:absolute;top:34%;left:50%;transform:translate(-50%,calc(-50% - 6px));z-index:6;opacity:0;
+  padding:4px 11px;border-radius:999px;font-size:11px;font-weight:600;background:var(--accent);color:#fff;
+  box-shadow:0 6px 18px rgba(16,24,40,.22);transition:opacity .2s,transform .2s;white-space:nowrap}
+.dm-gate.show{opacity:1;transform:translate(-50%,-50%)}
+
+.dm-panels{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);overflow:hidden;
+  height:clamp(196px,25vw,248px)}
+.dm-p{background:var(--bg-card);display:flex;flex-direction:column;min-width:0;min-height:0;padding:9px 9px 8px}
+.dm-ptitle{display:flex;align-items:center;gap:5px;font-size:11.5px;font-weight:600;margin-bottom:8px;flex:none}
+.dm-dot{width:7px;height:7px;border-radius:50%;background:var(--accent-3);flex:none}
+.dm-body{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;gap:5px}
+.dm-l{height:6px;border-radius:3px;background:#e9eaee}
+.dm-l.w9{width:92%}.dm-l.w7{width:74%}.dm-l.w5{width:56%}.dm-l.w8{width:84%}
+/* the critique that comes back */
+.dm-crit{margin:7px 0 0;padding-top:8px;border-top:1px solid var(--border);font-size:10.5px;
+  line-height:1.45;color:var(--text-dim);opacity:0;transform:translateY(5px);
+  transition:opacity .3s,transform .3s}
+.dm-crit b{color:var(--text);font-weight:600}
+.dm-crit.show{opacity:1;transform:none}
+/* composer, where the other panels' answers land */
+.dm-in{flex:none;margin-top:8px;min-height:30px;border:1px solid var(--border-strong);border-radius:8px;
+  background:#fff;padding:5px 7px;display:flex;flex-wrap:wrap;gap:3px;align-content:flex-start;
+  font-size:10px;color:var(--text-faint);transition:border-color .2s,box-shadow .2s}
+.dm-in .ph{color:var(--text-faint)}
+.dm-in.filling .ph,.dm-in.filled .ph{display:none}
+.dm-in.filled{border-color:var(--accent);box-shadow:0 0 0 2px rgba(38,40,45,.07)}
+.dm-in.sent{border-color:var(--border-strong);box-shadow:none}
+.dm-tag{display:none;align-items:center;gap:3px;padding:1px 6px;border-radius:999px;font-size:9.5px;
+  font-weight:600;background:var(--bg-soft);border:1px solid var(--border);color:var(--text)}
+.dm-tag.on{display:inline-flex;animation:dm-pop .22s cubic-bezier(.2,.9,.3,1.4) both}
+.dm-ask{display:none;width:100%;font-size:9.5px;color:var(--text-dim);margin-top:1px}
+.dm-ask.on{display:block;animation:dm-pop .22s ease both}
+@keyframes dm-pop{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:none}}
+
+/* a chip carrying one panel's answer to another panel's composer */
+.dm-chip{position:absolute;top:0;left:0;z-index:5;padding:2px 8px;border-radius:999px;font-size:10px;
+  font-weight:600;background:var(--accent);color:#fff;white-space:nowrap;pointer-events:none;
+  box-shadow:0 6px 16px rgba(16,24,40,.28);opacity:0}
+
+.dm-cursor{position:absolute;top:0;left:0;z-index:7;pointer-events:none;
+  filter:drop-shadow(0 2px 3px rgba(0,0,0,.28));margin:-3px 0 0 -3px}
+
+@media (max-width:560px){
+  .dm-name,.dm-omni,.dm-btn.icon{display:none}
+  .dm-btn{font-size:10px;padding:0 7px}
+  .dm-panels{height:clamp(196px,52vw,232px)}
+  .dm-crit{font-size:9.5px}
+  .dm-body .dm-l:nth-of-type(n+4){display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .dm-cursor,.dm-chip{display:none}
+  .dm-btn.dm-x::after{animation:none}
+}

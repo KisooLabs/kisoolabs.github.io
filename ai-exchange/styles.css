@@ -77,6 +77,22 @@ h1,h2,h3{line-height:1.08;letter-spacing:-.02em;font-weight:600;margin:0}
 .f h3{font-size:18px;margin:0 0 8px}
 .f p{color:var(--text-dim);font-size:15px;line-height:1.55;margin:0}
 
+/* install steps (same rules as the pdf-page-remover page) */
+.steps{counter-reset:s;display:grid;gap:16px;max-width:720px;margin:0}
+.steps li{list-style:none;position:relative;padding-left:52px;color:var(--text-dim);font-size:15.5px;line-height:1.5}
+.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:-2px;
+  width:32px;height:32px;border-radius:50%;background:var(--accent);color:#fff;font-weight:600;font-size:15px;
+  display:grid;place-items:center}
+.steps b{color:var(--text)}
+.steps code{background:#fff;border:1px solid var(--border);border-radius:6px;padding:1px 7px;font-size:13.5px;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.cta-left{justify-content:flex-start;margin:0 0 34px}
+.steps + .callout{margin-top:30px}
+.nav-right{display:flex;align-items:center;gap:10px}
+/* on a phone the bar holds the download and drops Privacy, which the footer
+   and the in-page section both still link */
+@media (max-width:560px){.nav-right .ghost{display:none}}
+
 /* privacy callout */
 .callout{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);
   padding:clamp(24px,3vw,34px);box-shadow:var(--shadow);max-width:760px}

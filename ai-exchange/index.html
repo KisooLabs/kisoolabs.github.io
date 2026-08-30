@@ -56,11 +56,62 @@
           summaries of the same thing but three critiques, and the disagreements are where the
           useful part usually is.</p>
 
+        <div class="shot demo reveal" id="demo" role="img"
+             aria-label="Animated demo: pressing the Exchange button in the header hands each panel's latest answer to the other two panels, fills every composer before anything is sent, and the panels come back with critiques of one another.">
+          <div class="dm-bar">
+            <span class="dm-brand" aria-hidden="true">⇄</span>
+            <span class="dm-name">AI Exchange</span>
+            <span class="dm-omni">Send to every panel…</span>
+            <span class="dm-btn">→ Send</span>
+            <span class="dm-btn dm-x" id="dmX">⇄ Exchange</span>
+            <span class="dm-btn icon">⚙</span>
+            <span class="dm-btn">✎ New Chat</span>
+            <span class="dm-btn">↓ Export</span>
+          </div>
+          <div class="dm-gate" id="dmGate">Filling 0 / 3</div>
+          <div class="dm-panels">
+              <div class="dm-p" data-panel="chatgpt">
+                <div class="dm-ptitle"><span class="dm-dot"></span>ChatGPT</div>
+                <div class="dm-body" aria-hidden="true">
+                  <span class="dm-l w9"></span><span class="dm-l w8"></span><span class="dm-l w9"></span>
+                  <span class="dm-l w7"></span><span class="dm-l w9"></span><span class="dm-l w8"></span>
+                  <span class="dm-l w5"></span>
+                  <p class="dm-crit"><b>Gemini</b> overstates how reliable current detectors are.</p>
+                </div>
+                <div class="dm-in"><span class="ph">Ask ChatGPT…</span><span class="dm-tag" data-tag="Gemini">Gemini</span><span class="dm-tag" data-tag="Claude">Claude</span><span class="dm-ask">Check these rather than agree with them.</span></div>
+              </div>
+              <div class="dm-p" data-panel="gemini">
+                <div class="dm-ptitle"><span class="dm-dot"></span>Gemini</div>
+                <div class="dm-body" aria-hidden="true">
+                  <span class="dm-l w9"></span><span class="dm-l w8"></span><span class="dm-l w9"></span>
+                  <span class="dm-l w7"></span><span class="dm-l w9"></span><span class="dm-l w8"></span>
+                  <span class="dm-l w5"></span>
+                  <p class="dm-crit"><b>ChatGPT</b> is right that false positives fall on the wrong students.</p>
+                </div>
+                <div class="dm-in"><span class="ph">Ask Gemini…</span><span class="dm-tag" data-tag="ChatGPT">ChatGPT</span><span class="dm-tag" data-tag="Claude">Claude</span><span class="dm-ask">Check these rather than agree with them.</span></div>
+              </div>
+              <div class="dm-p" data-panel="claude">
+                <div class="dm-ptitle"><span class="dm-dot"></span>Claude</div>
+                <div class="dm-body" aria-hidden="true">
+                  <span class="dm-l w9"></span><span class="dm-l w8"></span><span class="dm-l w9"></span>
+                  <span class="dm-l w7"></span><span class="dm-l w9"></span><span class="dm-l w8"></span>
+                  <span class="dm-l w5"></span>
+                  <p class="dm-crit">Both treat detection as evidence rather than as a prompt to ask.</p>
+                </div>
+                <div class="dm-in"><span class="ph">Ask Claude…</span><span class="dm-tag" data-tag="ChatGPT">ChatGPT</span><span class="dm-tag" data-tag="Gemini">Gemini</span><span class="dm-ask">Check these rather than agree with them.</span></div>
+              </div>
+          </div>
+          <div class="dm-cursor" id="dmCursor" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20"><path d="M4 2l6.5 16.5 2.4-6.6 6.6-2.4L4 2z" fill="#111" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+        <p class="shot-cap reveal">One press: every panel is filled with the others' answers, and only then does anything send.</p>
+
         <div class="shot reveal">
           <img src="assets/shot-exchange.png" width="1280" height="800"
                alt="After an exchange: Gemini writing a critique of ChatGPT's answer, Claude writing about what both other answers get right, and ChatGPT weighing Claude's position against its own.">
         </div>
-        <p class="shot-cap reveal">Gemini critiquing ChatGPT, Claude weighing both, ChatGPT answering back.</p>
+        <p class="shot-cap reveal">The real thing: Gemini critiquing ChatGPT, Claude weighing both, ChatGPT answering back.</p>
       </div>
     </section>
 
@@ -146,5 +197,144 @@
       <nav><a href="privacy/">Privacy</a> · <a href="../">← All projects</a></nav>
     </div>
   </footer>
+
+  <script>
+  /* Exchange demo. One timed pass: aim at the button, press it, carry each
+     panel's answer to the OTHER panels (its own excluded, as the extension
+     does), fill all three composers before anything sends, then let the
+     critiques come back. Loops. */
+  (function(){
+    var demo = document.getElementById('demo');
+    if(!demo) return;
+    var xBtn   = document.getElementById('dmX');
+    var gate   = document.getElementById('dmGate');
+    var cursor = document.getElementById('dmCursor');
+    var panels = [].slice.call(demo.querySelectorAll('.dm-p'));
+    var NAMES  = {chatgpt:'ChatGPT', gemini:'Gemini', claude:'Claude'};
+
+    function part(panel, sel){ return panel.querySelector(sel); }
+    function centerOf(el){
+      var pr = demo.getBoundingClientRect(), r = el.getBoundingClientRect();
+      return {x: r.left - pr.left + r.width/2, y: r.top - pr.top + r.height/2};
+    }
+    function moveTo(el){
+      var c = centerOf(el);
+      cursor.style.transform = 'translate(' + c.x + 'px,' + c.y + 'px)';
+    }
+    function reset(){
+      demo.classList.remove('is-aim','is-press','is-run');
+      gate.classList.remove('show');
+      gate.textContent = 'Filling 0 / 3';
+      panels.forEach(function(p){
+        var box = part(p, '.dm-in');
+        box.classList.remove('filling','filled','sent');
+        [].forEach.call(p.querySelectorAll('.dm-tag'), function(t){ t.classList.remove('on'); });
+        part(p, '.dm-ask').classList.remove('on');
+        part(p, '.dm-crit').classList.remove('show');
+      });
+      [].forEach.call(demo.querySelectorAll('.dm-chip'), function(c){ c.remove(); });
+    }
+
+    /* Static end state when motion is not wanted: the exchange has happened. */
+    if(window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+      panels.forEach(function(p){ part(p, '.dm-crit').classList.add('show'); });
+      demo.classList.add('is-run');
+      gate.textContent = 'Sent to all 3';
+      gate.classList.add('show');
+      cursor.style.display = 'none';
+      return;
+    }
+
+    var timers = [];
+    function at(ms, fn){ timers.push(setTimeout(fn, ms)); }
+
+    var landed = 0;
+    function fly(from, to, label){
+      var chip = document.createElement('span');
+      chip.className = 'dm-chip';
+      chip.textContent = label;
+      demo.appendChild(chip);
+      var a = centerOf(part(from, '.dm-body')), b = centerOf(part(to, '.dm-in'));
+      chip.style.transform = 'translate(' + (a.x - 26) + 'px,' + a.y + 'px)';
+      chip.getBoundingClientRect();                    // commit the start point
+      chip.style.transition = 'transform .62s cubic-bezier(.4,.1,.25,1),opacity .18s';
+      chip.style.opacity = '1';
+      chip.style.transform = 'translate(' + (b.x - 26) + 'px,' + b.y + 'px)';
+      at(560, function(){ chip.style.opacity = '0'; });
+      at(640, function(){
+        chip.remove();
+        var tag = to.querySelector('.dm-tag[data-tag="' + label + '"]');
+        var box = part(to, '.dm-in');
+        box.classList.add('filling');
+        if(tag) tag.classList.add('on');
+        if(to.querySelectorAll('.dm-tag.on').length === 2){
+          box.classList.remove('filling');
+          box.classList.add('filled');
+          part(to, '.dm-ask').classList.add('on');
+        }
+        landed++;
+        var done = demo.querySelectorAll('.dm-in.filled').length;
+        gate.textContent = (done === 3 ? 'Filled 3 / 3' : 'Filling ' + done + ' / 3');
+      });
+    }
+
+    function play(){
+      timers.forEach(clearTimeout); timers = [];
+      reset();
+      landed = 0;
+      cursor.style.transition = 'none';
+      cursor.style.transform = 'translate(' + (demo.clientWidth*0.30) + 'px,' + (demo.clientHeight*0.72) + 'px)';
+      at(60, function(){ cursor.style.transition = 'transform .72s cubic-bezier(.4,.5,.3,1)'; });
+
+      at(700,  function(){ moveTo(xBtn); demo.classList.add('is-aim'); });
+      at(1400, function(){ demo.classList.add('is-press'); });
+      at(1560, function(){
+        demo.classList.remove('is-press');
+        demo.classList.add('is-run');
+        gate.classList.add('show');
+      });
+
+      /* one wave per DESTINATION panel: it receives the other two answers, its
+         own excluded. Filling a panel at a time is what the extension does and
+         it also lets the counter climb 1, 2, 3 instead of jumping. */
+      panels.forEach(function(dst, i){
+        at(1620 + i*420, function(){
+          panels.forEach(function(src){
+            if(src !== dst) fly(src, dst, NAMES[src.dataset.panel]);
+          });
+        });
+      });
+
+      at(3100, function(){ gate.textContent = 'Filled 3 / 3'; });
+      at(3700, function(){
+        gate.textContent = 'Sent to all 3';
+        panels.forEach(function(p){
+          var box = part(p, '.dm-in');
+          box.classList.remove('filled','filling');
+          box.classList.add('sent');
+          [].forEach.call(p.querySelectorAll('.dm-tag'), function(t){ t.classList.remove('on'); });
+          part(p, '.dm-ask').classList.remove('on');
+        });
+      });
+
+      panels.forEach(function(p, i){
+        at(4550 + i*340, function(){ part(p, '.dm-crit').classList.add('show'); });
+      });
+
+      at(4450, function(){ gate.classList.remove('show'); });
+      at(7900, play);
+    }
+
+    /* start once visible: the coordinate maths needs a laid-out element */
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(es){
+        es.forEach(function(e){ if(e.isIntersecting){ play(); io.disconnect(); } });
+      }, {threshold:.25});
+      io.observe(demo);
+    } else {
+      play();
+    }
+  })();
+  </script>
 </body>
 </html>

@@ -91,9 +91,17 @@ h1,h2,h3{line-height:1.08;letter-spacing:-.02em;font-weight:600;margin:0}
 .section .sub.narrow{margin-bottom:22px}
 .steps + .callout{margin-top:30px}
 .nav-right{display:flex;align-items:center;gap:10px}
-/* on a phone the bar holds the download and drops Privacy, which the footer
-   and the in-page section both still link */
-@media (max-width:560px){.nav-right .ghost{display:none}}
+/* on a phone the bar holds the store link and drops Privacy, which the footer
+   and the in-page section both still link. The label is two words that must not
+   wrap inside the pill, so it also loses some padding to stay on one line. */
+@media (max-width:560px){.nav-right .ghost{display:none}
+  .nav-right .btn{white-space:nowrap;padding:8px 14px;font-size:13.5px}
+  .nav-back{display:none}
+  .nav-left{min-width:0;gap:10px}
+  .nav-title{min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}}
+/* below this the product name starts to truncate, and the name is worth more
+   than the mark it sits next to */
+@media (max-width:400px){.nav-title img{display:none}}
 
 /* privacy callout */
 .callout{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);

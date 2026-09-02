@@ -137,6 +137,7 @@ def build_programs(programs: list[dict], notes: list[dict]) -> str:
             actions.append(
                 f'              <a class="pbtn" href="{store["href"]}"'
                 f' target="_blank" rel="noopener">'
+                f'<img class="mark" src="{store["mark"]}" alt="" width="16" height="16"> '
                 f'{store["label"]} <span class="arr">↗</span></a>'
             )
         for note in by_program.get(prog["id"], []):

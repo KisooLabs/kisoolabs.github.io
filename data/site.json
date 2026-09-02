@@ -40,7 +40,7 @@
       "platforms": ["chrome"],
       "href": "ai-exchange/",
       "external": false,
-      "store": {"label": "Chrome Web Store", "href": "https://chromewebstore.google.com/detail/ai-exchange/naffdgmhedmdagajmbgfgpoiiheadhee"},
+      "store": {"label": "Chrome Web Store", "href": "https://chromewebstore.google.com/detail/ai-exchange/naffdgmhedmdagajmbgfgpoiiheadhee", "mark": "ai-exchange/assets/chrome-web-store-mark.svg"},
       "thumb": "assets/ai-exchange-thumb.jpg",
       "alt": "AI Exchange — ChatGPT, Google Gemini and Claude open side by side as panels in one browser tab, each answering the same question.",
       "desc": "ChatGPT, Gemini, Claude and Grok side by side in one tab — with one click that hands each answer to the others for a critical read."

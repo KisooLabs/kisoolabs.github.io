@@ -135,7 +135,7 @@ def build_programs(programs: list[dict], notes: list[dict]) -> str:
         store = prog.get("store")
         if store:
             actions.append(
-                f'              <a class="pbtn store" href="{store["href"]}"'
+                f'              <a class="pbtn" href="{store["href"]}"'
                 f' target="_blank" rel="noopener">'
                 f'{store["label"]} <span class="arr">↗</span></a>'
             )

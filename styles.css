@@ -71,6 +71,7 @@ header.site{padding-top:clamp(52px,8vw,96px);padding-bottom:clamp(28px,5vw,50px)
   color:var(--text);background:var(--bg-card);transition:background .15s,border-color .15s,color .15s}
 .pbtn:hover{background:var(--bg-soft);border-color:rgba(28,25,23,.4)}
 .pbtn .arr{color:var(--text-faint);font-weight:400}
+.pbtn .mark{width:16px;height:16px;flex:none;margin-left:-2px}
 .pbtn.note{color:var(--text-dim);border-color:var(--border)}
 .pbtn.note:hover{color:var(--text);border-color:var(--border-strong);background:var(--bg-soft)}
 .pbtn time{color:var(--text-faint);font-size:12.5px;white-space:nowrap}

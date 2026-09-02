@@ -35,6 +35,9 @@ h1,h2,h3{line-height:1.08;letter-spacing:-.02em;font-weight:600;margin:0}
 .btn.ghost{background:#fff;color:var(--text);border:1px solid var(--border-strong);box-shadow:none}
 .btn.ghost:hover{background:var(--bg-soft);box-shadow:none}
 .btn.sm{padding:9px 16px;font-size:14px}
+/* the store mark inside a button: sized to the label, never recoloured */
+.btn .mark{width:18px;height:18px;flex:none;margin-left:-2px}
+.btn.sm .mark{width:16px;height:16px}
 
 /* nav */
 #nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.78);backdrop-filter:blur(12px);
@@ -88,10 +91,6 @@ h1,h2,h3{line-height:1.08;letter-spacing:-.02em;font-weight:600;margin:0}
   font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
 .cta-left{justify-content:flex-start;margin:0 0 34px}
 .subhead{font-size:clamp(19px,2.2vw,23px);margin:8px 0 10px;letter-spacing:-.01em}
-.hero-cta.tight{margin-bottom:14px}
-.cws-badge{display:inline-block;margin:0 0 34px;line-height:0}
-.cws-badge img{width:170px;height:48px}
-.cws-badge:hover{opacity:.88}
 .section .sub.narrow{margin-bottom:22px}
 .steps + .callout{margin-top:30px}
 .nav-right{display:flex;align-items:center;gap:10px}

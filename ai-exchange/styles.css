@@ -87,6 +87,8 @@ h1,h2,h3{line-height:1.08;letter-spacing:-.02em;font-weight:600;margin:0}
 .steps code{background:#fff;border:1px solid var(--border);border-radius:6px;padding:1px 7px;font-size:13.5px;
   font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
 .cta-left{justify-content:flex-start;margin:0 0 34px}
+.subhead{font-size:clamp(19px,2.2vw,23px);margin:8px 0 10px;letter-spacing:-.01em}
+.section .sub.narrow{margin-bottom:22px}
 .steps + .callout{margin-top:30px}
 .nav-right{display:flex;align-items:center;gap:10px}
 /* on a phone the bar holds the download and drops Privacy, which the footer

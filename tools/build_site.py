@@ -132,6 +132,13 @@ def build_programs(programs: list[dict], notes: list[dict]) -> str:
             f'              <a class="pbtn" href="{prog["href"]}"{target}>'
             f'See program <span class="arr">{arrow}</span></a>'
         ]
+        store = prog.get("store")
+        if store:
+            actions.append(
+                f'              <a class="pbtn store" href="{store["href"]}"'
+                f' target="_blank" rel="noopener">'
+                f'{store["label"]} <span class="arr">↗</span></a>'
+            )
         for note in by_program.get(prog["id"], []):
             dt = parse_date(note["date"])
             label = "Making note"

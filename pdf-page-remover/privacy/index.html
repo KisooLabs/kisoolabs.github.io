@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Privacy Policy — PDF Page Remover — Kisoo Kim</title>
+  <meta name="description" content="PDF Page Remover has no server and stores nothing at all, not even a setting. It does not request the storage permission. Everything it does happens between the PDF you are looking at and your Downloads folder.">
+  <link rel="canonical" href="https://kisoolabs.github.io/pdf-page-remover/privacy/">
+  <meta property="og:title" content="Privacy Policy — PDF Page Remover">
+  <meta property="og:description" content="No server, no storage, no analytics, no account. The PDF goes in one direction: into a file on your computer.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://kisoolabs.github.io/pdf-page-remover/privacy/">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="../../assets/favicon.svg">
+  <link rel="preload" href="../../fonts/Geist-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../fonts/Geist-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../fonts/Geist-Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../notes/styles.css">
+</head>
+<body>
+  <header id="nav">
+    <div class="container nav-row">
+      <div class="nav-left">
+        <a class="nav-back" href="../">← PDF Page Remover</a>
+        <span class="nav-title">PDF Page Remover — Privacy</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <article class="note container" style="max-width:var(--prose);padding-block:clamp(40px,6vw,72px)">
+      <h1 style="font-size:clamp(30px,4.6vw,44px);letter-spacing:-.03em;margin:0 0 14px">Privacy Policy</h1>
+      <p class="note-meta">PDF Page Remover · Last updated 12 September 2026 · Applies to version 1.0.0 and later</p>
+
+      <p class="standfirst">PDF Page Remover has no server and stores nothing at all, not even a setting. It
+        does not request the storage permission, so there is no place in it for your data to accumulate.
+        Everything it does happens inside your browser, between the PDF you are looking at and your Downloads
+        folder.</p>
+
+      <h2>What the extension stores</h2>
+      <p>Nothing.</p>
+      <p>That is checkable in one step. The manifest lists three permissions, <em>activeTab</em>,
+        <em>downloads</em> and <em>scripting</em>, and <em>storage</em> is not among them, so the browser would
+        refuse a write even if the code attempted one. Search the package for <em>chrome.storage</em>,
+        <em>localStorage</em>, <em>sessionStorage</em> or <em>indexedDB</em> and there are no calls.</p>
+      <p>The only state the extension has is the page selection you make while the popup is open. It exists in
+        memory for as long as the popup is open and is gone when it closes.</p>
+
+      <h2>What the extension reads, and where that reading goes</h2>
+      <p>When you click the toolbar icon, the extension reads the address of the tab you are on and then reads
+        that PDF, which is the document you asked it to work on. A PDF on the web is requested from the same
+        address the tab is already showing, with your browser's own session, exactly as the tab itself
+        requested it. A PDF on your own disk is read with <em>XMLHttpRequest</em> from its
+        <em>file://</em> address, and only if you have turned on Chrome's "Allow access to file URLs" for this
+        extension.</p>
+      <p>Once the pages are removed, the new PDF is written to your Downloads folder. Your original file is
+        never modified and never overwritten: the download is created with <em>conflictAction: 'uniquify'</em>,
+        so a name that already exists gets a number rather than replacing anything.</p>
+      <p>On <em>jstor.org</em>, and only if you have granted the optional permission for that site, the same
+        thing happens from a button on the page instead of from the popup. The article PDF is requested from
+        JSTOR with your existing JSTOR session, page 1 is removed, and the result is saved to Downloads.</p>
+      <p>The PDF goes in exactly one direction, into a file on your computer. It is never sent to the
+        developer, to an analytics service, or to any third party.</p>
+
+      <h2>What the extension does not do</h2>
+      <ul>
+        <li>No analytics, telemetry, crash reporting, or usage counting of any kind.</li>
+        <li>No advertising, and no advertising identifiers.</li>
+        <li>No account, no sign-in, no API key, and no server of its own.</li>
+        <li>No selling or sharing of data, because none is collected.</li>
+        <li>No reading of any website other than the tab you click the icon on, plus <em>jstor.org</em> if you
+          grant it. The extension does not request access to all sites.</li>
+        <li>No modification of your original files. Every result is a new download.</li>
+      </ul>
+
+      <h2>How you can check this rather than take my word for it</h2>
+      <p>The extension's own code is eight small JavaScript files, none of them minified and all of them
+        commented, so you can unpack the downloaded package and read every line. Two searches settle the claims
+        on this page.</p>
+      <ul>
+        <li>Search it for the addresses it contains. The only external address anywhere in the extension's own
+          code is <em>https://www.jstor.org/</em>, four times, twice in <em>background.js</em> and twice in
+          <em>popup.js</em>, each time to ask whether the optional JSTOR permission has been granted. There is
+          no other host, no analytics endpoint, and no developer-owned address of any kind.</li>
+        <li>Search it for ways to send data. There is no <em>sendBeacon</em>, no <em>WebSocket</em> and no image
+          beacon. There are exactly three network reads, every one of them the PDF you chose: a
+          <em>fetch</em> in <em>popup.js</em> for a PDF on the web, an <em>XMLHttpRequest</em> in
+          <em>popup.js</em> for a PDF on your disk, and a <em>fetch</em> in <em>content-jstor.js</em> for the
+          JSTOR article PDF. Each one requests a document you are already looking at, from the site it is
+          already on.</li>
+      </ul>
+
+      <h2>Permissions, and why each one exists</h2>
+      <ul>
+        <li><strong>activeTab</strong> — to read the address and the bytes of the PDF in the one tab whose icon
+          you clicked, at the moment you click it. There is no <em>&lt;all_urls&gt;</em> and no broad host
+          pattern in the manifest; nothing is readable before the click.</li>
+        <li><strong>downloads</strong> — to save the PDF the extension produced, without a Save-As dialog and
+          without replacing an existing file. No download ever starts unless you press the button.</li>
+        <li><strong>scripting</strong> — to register the JSTOR content script at runtime, and only while you
+          have granted the optional jstor.org permission. This is what keeps the base install free of any site
+          access; when you withdraw that permission the script is unregistered again.</li>
+        <li><strong>Access to file:///*</strong> — to open a PDF you have on your own computer, which Chrome's
+          <em>fetch</em> cannot read and which <em>activeTab</em> does not cover. On its own this declaration
+          does nothing: the real gate is Chrome's per-extension "Allow access to file URLs" switch, which is
+          off when you install and which no extension is permitted to turn on for you.</li>
+        <li><strong>Optional access to jstor.org</strong> — requested at runtime, from a row that appears in the
+          popup only on a JSTOR article page, for the one-click "Remove cover" button. Decline it and the
+          extension never touches jstor.org.</li>
+      </ul>
+
+      <h2>The two bundled libraries</h2>
+      <p>The page work is done on your machine by two open-source libraries shipped inside the package, not by a
+        service: pdf-lib 1.17.1 and Mozilla's pdf.js 3.11.174, both the projects' own published builds. They are
+        minified, which the Chrome Web Store permits explicitly and distinguishes from obfuscation, and neither
+        is modified, so the bundled <em>pdf-lib.min.js</em> is byte-for-byte the file npm publishes for version
+        1.17.1. Nothing is fetched from a CDN, and no code is loaded from any remote address at any point.</p>
+
+      <h2>JSTOR</h2>
+      <p>This extension is not affiliated with, sponsored by, or endorsed by JSTOR or ITHAKA. "JSTOR" is a
+        trademark of ITHAKA, used here only to say what the button is for. Nothing in the extension bypasses a
+        login or a paywall; it removes a page from a PDF you can already download, using the access you already
+        have.</p>
+
+      <h2>Children</h2>
+      <p>The extension is not directed at children and collects nothing from anyone.</p>
+
+      <h2>Changes</h2>
+      <p>If this policy ever changes, the date at the top changes with it, and the change is described in the
+        extension's release notes.</p>
+
+      <h2>Contact</h2>
+      <p><a href="mailto:kisoolabs@gmail.com">kisoolabs@gmail.com</a></p>
+
+      <p class="colophon">PDF Page Remover is a Chrome extension by Kisoo Kim.
+        <a href="../../">Other projects</a></p>
+    </article>
+  </main>
+
+  <footer class="site">
+    <div class="container foot">
+      <span>© Kisoo Kim</span>
+      <span><a href="../../">Projects</a> · <a href="../../notes/">Notes</a></span>
+    </div>
+  </footer>
+</body>
+</html>

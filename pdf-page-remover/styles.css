@@ -44,6 +44,12 @@ h1,h2,h3{line-height:1.08;letter-spacing:-.02em;font-weight:600;margin:0}
 .nav-back{color:var(--text-dim);font-size:15px}.nav-back:hover{color:var(--text)}
 .nav-title{display:flex;align-items:center;gap:9px;font-weight:600;font-size:16px}
 .nav-title img{width:23px;height:23px;border-radius:6px}
+.nav-right{display:flex;align-items:center;gap:10px}
+@media (max-width:560px){.nav-right .ghost{display:none}
+  .nav-right .btn{white-space:nowrap}
+  .nav-back{display:none}
+  .nav-title{min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}}
+@media (max-width:400px){.nav-title img{display:none}}
 
 /* hero */
 #hero{padding:clamp(44px,7vw,86px) 0 clamp(20px,4vw,44px);text-align:center;

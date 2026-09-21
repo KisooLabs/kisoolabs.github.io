@@ -91,6 +91,11 @@
       "platforms": ["chrome"],
       "href": "pdf-page-remover/",
       "external": false,
+      "store": {
+        "label": "Chrome Web Store",
+        "href": "https://chromewebstore.google.com/detail/pdf-page-remover/aadkgapneafedkodeahhcdbijbbompgg",
+        "mark": "pdf-page-remover/assets/chrome-web-store-mark.svg"
+      },
       "thumb": "pdf-page-remover/assets/og.png",
       "alt": "PDF Page Remover — a browser popup showing a grid of PDF page thumbnails to pick which pages to remove.",
       "desc": "Remove unwanted pages from any PDF and save a clean copy — with a one-click JSTOR cover remover. Runs entirely in your browser."

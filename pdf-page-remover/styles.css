@@ -35,6 +35,8 @@ h1,h2,h3{line-height:1.08;letter-spacing:-.02em;font-weight:600;margin:0}
 .btn.soon{background:#fff;color:var(--text-faint);border:1px dashed var(--border-strong);box-shadow:none;cursor:default}
 .btn.soon:hover{transform:none;box-shadow:none;background:#fff}
 .btn.soon .dot{width:7px;height:7px;border-radius:50%;background:#e0a100}
+.btn .mark{width:18px;height:18px;flex:none;margin-left:-2px}
+.btn.sm .mark{width:16px;height:16px}
 
 /* nav */
 #nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.78);backdrop-filter:blur(12px);

@@ -35,6 +35,16 @@
 
   "programs": [
     {
+      "id": "vs-code-claude-opener",
+      "name": "VS Code Claude Opener",
+      "platforms": ["vscode"],
+      "href": "https://github.com/KisooLabs/vs-code-claude-opener",
+      "external": true,
+      "thumb": "assets/vs-code-claude-opener-thumb.svg",
+      "alt": "VS Code Claude Opener — a command in one VS Code window opens a new Claude Code tab in another window.",
+      "desc": "One Claude Code session opens a new session in another VS Code window, picked by its project folder, and hands it the next task. Unofficial."
+    },
+    {
       "id": "ai-exchange",
       "name": "AI Exchange",
       "platforms": ["chrome"],

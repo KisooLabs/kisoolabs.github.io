@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="VS Code Claude Opener — a command in one VS Code window opens a new Claude Code tab in another window." font-family="'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <rect width="640" height="360" fill="#FAFAF7"/>
+
+  <rect x="36" y="70" width="252" height="220" rx="14" fill="#FFFFFF" stroke="#1C1917" stroke-opacity=".12"/>
+  <path d="M37 84a13 13 0 0 1 13-13h224a13 13 0 0 1 13 13v30H37z" fill="#F1F0EC"/>
+  <text x="58" y="100" font-size="20" font-weight="600" fill="#1C1917">project-a</text>
+  <text x="58" y="172" font-size="28" font-weight="600" fill="#1C1917">opener.py</text>
+  <text x="58" y="212" font-size="21" fill="#8A8580" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace">--folder</text>
+  <text x="58" y="242" font-size="21" fill="#8A8580" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace">project-b</text>
+
+  <path d="M302 180h28" stroke="#0f76d6" stroke-width="5" stroke-linecap="round"/>
+  <path d="M326 168l14 12-14 12" fill="none" stroke="#0f76d6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="352" y="70" width="252" height="220" rx="14" fill="#FFFFFF" stroke="#1C1917" stroke-opacity=".12"/>
+  <path d="M353 84a13 13 0 0 1 13-13h224a13 13 0 0 1 13 13v30H353z" fill="#F1F0EC"/>
+  <text x="374" y="100" font-size="20" font-weight="600" fill="#1C1917">project-b</text>
+  <rect x="353" y="115" width="162" height="44" fill="#FFFFFF"/>
+  <rect x="353" y="115" width="162" height="4" fill="#0f76d6"/>
+  <text x="374" y="145" font-size="20" font-weight="600" fill="#1C1917">Claude Code</text>
+  <line x1="353" y1="159" x2="603" y2="159" stroke="#1C1917" stroke-opacity=".10"/>
+  <text x="374" y="212" font-size="28" font-weight="600" fill="#1C1917">new session</text>
+  <text x="374" y="248" font-size="21" fill="#8A8580">ready for the task</text>
+</svg>

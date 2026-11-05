@@ -42,7 +42,7 @@
       "external": true,
       "thumb": "assets/vs-code-updater-thumb.svg",
       "alt": "VS Code Updater — a window still on the old Claude Code version shows a reload item while its session is idle and the user is away, and comes back on the new version with its conversation.",
-      "desc": "Reloads a VS Code window after Claude Code updates, only when no Claude Code work is running in it and you are away, so a new Claude Code tab never opens blank. Unofficial; verified on Windows."
+      "desc": "Reloads a VS Code window after Claude Code updates, only when no Claude Code work is running in it and you are away, so a new Claude Code tab never opens blank. Reloads one window at a time and waits while memory is short. Unofficial; verified on Windows."
     },
     {
       "id": "vs-code-claude-opener",
